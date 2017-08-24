@@ -31,8 +31,9 @@ body {
 
 nav,
 footer {
-    flex: 0 0 auto;
+    flex: 0 auto;
     background-color: rgb(235, 235, 235);
+    flex: 0 0 auto;
 }
 
 footer {
@@ -245,7 +246,7 @@ main {
 }
 
 .question-container .first>div {
-    align-self: center;
+    align-self: baseline;
 }
 
 .question-container .first .input-content {
