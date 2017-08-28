@@ -36,6 +36,11 @@ footer {
     flex: 0 0 auto;
 }
 
+.navbar {
+    margin-left: -50px;
+    margin-right: -50px;
+}
+
 footer {
     border-top: 2px solid rgb(224, 224, 224);
 }
@@ -186,7 +191,21 @@ main {
     display: flex;
     align-items: center;
     flex: 0 auto;
+    position: fixed;
+    top: 50%;
     cursor: pointer;
+}
+
+.next {
+    left: 100%;
+    top: 55%;
+    transform: translate(-153%, -50%);
+}
+
+.previous {
+    right: 100%;
+    top: 55%;
+    transform: translate(130%, -50%);
 }
 
 .next>i,
@@ -208,11 +227,11 @@ main {
 }
 
 .next>i {
-    border-radius: 5px 0 0 5px;
+    border-radius: 0 5px 0 5px;
 }
 
 .previous>i {
-    border-radius: 0 5px 0 5px;
+    border-radius: 5px 0 0 5px;
 }
 
 .question-container .main {

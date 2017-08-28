@@ -4,9 +4,9 @@ var container = document.querySelector('#container');
 
 $('.sticky').scrollTop(120);
 
-var origOffsetY = $('.sticky').scrollTop();
+var origOffsetY = $('.sticky').offset().top - $(window).scrollTop();
 
-
+//var previous = $('.previous')
 
 $(document).ready(function() {
 
@@ -40,8 +40,7 @@ $(document).ready(function() {
 
         }
 
-        console.log($('.sticky').scrollTop());
-
+        console.log($(this).scrollTop());
     });
 
 });
