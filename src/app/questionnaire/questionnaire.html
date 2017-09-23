@@ -1,0 +1,326 @@
+<script>
+    (function() {
+        [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el) {
+            new SelectFx(el);
+        });
+    })();
+</script>
+
+<div sticky scrollable-watcher="#container" class="question-progress sticky">
+    <div ng-class="{'active': $ctrl.activeHome}">
+        <i class="icon-eco_casa"></i> Hogar
+    </div>
+    <div ng-class="{'active': $ctrl.activeTransp}">
+        <i class="icon-eco_colectivo"></i> Transporte
+    </div>
+    <div ng-class="{'active': $ctrl.activeResid}">
+        <i class="icon-eco_basura"></i> Residuos
+    </div>
+</div>
+<div class="question-container">
+    <div class="container-fluid main">
+        <div class="row first separator" in-view="$ctrl.homeInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+            <div class="col-md-6">
+                <div class="question-icon">
+                    <i class="icon-eco_personas"></i>
+                </div>
+                <div class="question-text">
+                    Cantidad de personas que comparten la vivienda
+                </div>
+                <div class="input-content">
+                    <div class="input-text">
+                        <input type="text" required>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="question-icon">
+                    <i class="icon-eco_horas"></i>
+                </div>
+                <div class="question-text">
+                    Banda horaria de permanencia
+                </div>
+                <div class="input-content">
+                    <div class="input-text">
+                        <input type="text" required>
+                        <hr>
+                    </div>
+                    <div class="unit">
+                        (horas por día)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row first ">
+            <div class="col-md-12">
+                <div class="question-icon">
+                    <i class="icon-eco_gas"></i>
+                </div>
+                <div class="question-text">
+                    Consumo bimestral de gas
+                    <div>¿Dónde encuentro el dato en mi factura? Metrogas</div>
+                    <div>Si no tiene las facturas a mano, haga click aqui para calcular el consumo.</div>
+                </div>
+                <div class="row">
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            1°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            2°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            3°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            4°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            5°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            6°
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row first ">
+            <div class="col-md-12">
+                <div class="question-icon">
+                    <i class="icon-eco_agua_caliente"></i>
+                </div>
+                <div class="question-text">
+                    Consumo bimestral de agua
+                    <div>¿Dónde encuentro el dato en mi factura? AySA</div>
+                    <div>Si no tiene las facturas a mano, haga click aqui para calcular el consumo.</div>
+                </div>
+                <div class="row">
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            1°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            2°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            3°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            4°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            5°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            6°
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row first separator">
+            <div class="col-md-12">
+                <div class="question-icon">
+                    <i class="icon-eco_electicidad"></i>
+                </div>
+                <div class="question-text">
+                    Consumo bimestral de electricidad
+                    <div>¿Dónde encuentro el dato en mi factura? Edenor Edesur</div>
+                    <div>Si no tiene las facturas a mano, haga click aqui para calcular el consumo.</div>
+                </div>
+                <div class="row">
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            1°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            2°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            3°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            4°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            5°
+                        </div>
+                    </div>
+                    <div class="input-content col-md-2">
+                        <div class="input-text">
+                            <input type="text" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            6°
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid main" in-view="$ctrl.transpInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+        <div class="row first">
+            <div class="col-md-12">
+                <div class="question-text">
+                    Tipo de transporte y distancia de su traslado diario al trabjo o estudio
+                </div>
+                <transpselector data="commuting" add-other="$ctrl.addCommutingTransp(selected)" remove="$ctrl.removeCommutingTransp(toRemove)" ng-repeat="commuting in $ctrl.transpCommuting track by $index"></transpselector>
+            </div>
+        </div>
+        <div class="row first">
+            <div class="col-md-12">
+                <div class="question-text">
+                    Tipo de transporte y distancia de su traslado diario a otras actividades
+                </div>
+                <transpselector data="actividad" add-other="$ctrl.addActividadesTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades track by $index"></transpselector>
+            </div>
+        </div>
+        <div class="row first">
+            <div class="col-md-12">
+                <div class="question-text">
+                    Tipo de transporte y distancia de su traslado diario a otras actividades
+                </div>
+                <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes track by $index"></transpselector>
+            </div>
+        </div>
+        <div class="row first separator">
+            <div class="col-md-12">
+                <div class="question-icon">
+                    <i class="icon-eco_personas"></i>
+                </div>
+                <div class="question-text">
+                    Cantidad de días de hospedaje en viajes
+                </div>
+                <div class="input-content">
+                    <div class="input-text">
+                        <input type="text" required>
+                        <hr>
+                    </div>
+                    <div class="unit">
+                        (noches)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid main" in-view="$ctrl.residInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+        <div class="row first">
+            <div class="col-md-12">
+                <div class="question-icon">
+                    <i class="icon-eco_personas"></i>
+                </div>
+                <div class="question-text">
+                    Cantidad de residuos generados
+                </div>
+                <div class="input-content">
+                    <div class="input-text">
+                        <input type="text" required>
+                        <hr>
+                    </div>
+                    <div class="unit">
+                        (bolsas)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
