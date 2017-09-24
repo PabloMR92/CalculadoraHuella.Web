@@ -1,0 +1,31 @@
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselectedtransp}">
+        {{ $ctrl.optionselectedtransp ? $ctrl.optionselectedtransp.name : 'Elegir tipo de viaje'}}
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li ng-click="$ctrl.optionselectedtransp = null">Ninguno</li>
+        <li class="dropdown-divider"></li>
+        <li ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">{{ option.name }}</li>
+    </ul>
+</div>
+<div class="input-content">
+    <div class="input-text">
+        <input type="text" ng-model="$ctrl.escalas" required ng-change="$ctrl.compute()">
+        <hr>
+    </div>
+    <div class="unit">
+        (escalas)
+    </div>
+</div>
+<div class="input-content">
+    <div class="input-text">
+        <input type="text" ng-model="$ctrl.recorrido" required ng-change="$ctrl.compute()">
+        <hr>
+    </div>
+    <div class="unit">
+        (km)
+    </div>
+</div>
+<i ng-show="$ctrl.data.showOther" ng-click="$ctrl.addOther({selected: $ctrl.data})" class="arrow-icon-plus-circle" aria-hidden="true"></i>
+<i ng-show="!$ctrl.data.showOther" ng-click="$ctrl.remove({toRemove: $ctrl.data})" class="arrow-icon-minus-circle" aria-hidden="true"></i>

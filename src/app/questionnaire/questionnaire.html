@@ -19,8 +19,8 @@
 </div>
 <div class="question-container">
     <div class="container-fluid main">
-        <div class="row first separator" in-view="$ctrl.homeInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
-            <div class="col-md-6">
+        <div class="row first" in-view="$ctrl.homeInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+            <div class="col-md-12">
                 <div class="question-icon">
                     <i class="icon-eco_personas"></i>
                 </div>
@@ -29,25 +29,8 @@
                 </div>
                 <div class="input-content">
                     <div class="input-text">
-                        <input type="text" required>
+                        <input type="text" ng-model="$ctrl.habitantes" required>
                         <hr>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="question-icon">
-                    <i class="icon-eco_horas"></i>
-                </div>
-                <div class="question-text">
-                    Banda horaria de permanencia
-                </div>
-                <div class="input-content">
-                    <div class="input-text">
-                        <input type="text" required>
-                        <hr>
-                    </div>
-                    <div class="unit">
-                        (horas por día)
                     </div>
                 </div>
             </div>
@@ -60,61 +43,16 @@
                 <div class="question-text">
                     Consumo bimestral de gas
                     <div>¿Dónde encuentro el dato en mi factura? Metrogas</div>
-                    <div>Si no tiene las facturas a mano, haga click aqui para calcular el consumo.</div>
+                    <div>Si no tiene las facturas a mano, haga <a href="https://www.metrogas.com.ar/hogares/Paginas/entende-tu-factura.aspx">click aqui</a> para calcular el consumo.</div>
                 </div>
                 <div class="row">
-                    <div class="input-content col-md-2">
+                    <div ng-repeat="bimestre in $ctrl.gasBimestres track by $index" class="input-content col-md-2">
                         <div class="input-text">
-                            <input type="text" required>
+                            <input type="text" ng-model="bimestre.consumo" required>
                             <hr>
                         </div>
                         <div class="unit">
-                            1°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            2°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            3°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            4°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            5°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            6°
+                            {{ $index }}°
                         </div>
                     </div>
                 </div>
@@ -128,61 +66,16 @@
                 <div class="question-text">
                     Consumo bimestral de agua
                     <div>¿Dónde encuentro el dato en mi factura? AySA</div>
-                    <div>Si no tiene las facturas a mano, haga click aqui para calcular el consumo.</div>
+                    <div>Si no tiene las facturas a mano, haga <a href="http://www.aguascordobesas.com.ar/testconsumo/test.html">click aqui</a> para calcular el consumo.</div>
                 </div>
                 <div class="row">
-                    <div class="input-content col-md-2">
+                    <div ng-repeat="bimestre in $ctrl.aguaBimestres track by $index" class="input-content col-md-2">
                         <div class="input-text">
-                            <input type="text" required>
+                            <input type="text" ng-model="bimestre.consumo" required>
                             <hr>
                         </div>
                         <div class="unit">
-                            1°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            2°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            3°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            4°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            5°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            6°
+                            {{ $index }}°
                         </div>
                     </div>
                 </div>
@@ -196,61 +89,16 @@
                 <div class="question-text">
                     Consumo bimestral de electricidad
                     <div>¿Dónde encuentro el dato en mi factura? Edenor Edesur</div>
-                    <div>Si no tiene las facturas a mano, haga click aqui para calcular el consumo.</div>
+                    <div>Si no tiene las facturas a mano, haga <a href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">click aqui</a> para calcular el consumo.</div>
                 </div>
                 <div class="row">
-                    <div class="input-content col-md-2">
+                    <div ng-repeat="bimestre in $ctrl.electricidadBimestres track by $index" class="input-content col-md-2">
                         <div class="input-text">
-                            <input type="text" required>
+                            <input type="text" ng-model="bimestre.consumo" required>
                             <hr>
                         </div>
                         <div class="unit">
-                            1°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            2°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            3°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            4°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            5°
-                        </div>
-                    </div>
-                    <div class="input-content col-md-2">
-                        <div class="input-text">
-                            <input type="text" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            6°
+                            {{ $index }}°
                         </div>
                     </div>
                 </div>
@@ -276,8 +124,19 @@
         </div>
         <div class="row first">
             <div class="col-md-12">
+                <div class="question-icon">
+                    <i class="icon-eco_avion"></i>
+                </div>
                 <div class="question-text">
-                    Tipo de transporte y distancia de su traslado diario a otras actividades
+                    Viajes en avion realizados
+                </div>
+                <avionselector data="vuelo" add-other="$ctrl.addViajeVuelo(selected)" remove="$ctrl.removeViajeVuelo(toRemove)" ng-repeat="vuelo in $ctrl.transpVuelos track by $index"></avionselector>
+            </div>
+        </div>
+        <div class="row first">
+            <div class="col-md-12">
+                <div class="question-text">
+                    Tipo de transporte y distancia durante el período de viaje
                 </div>
                 <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes track by $index"></transpselector>
             </div>
@@ -285,14 +144,14 @@
         <div class="row first separator">
             <div class="col-md-12">
                 <div class="question-icon">
-                    <i class="icon-eco_personas"></i>
+                    <i class="icon-eco_hospedaje"></i>
                 </div>
                 <div class="question-text">
                     Cantidad de días de hospedaje en viajes
                 </div>
                 <div class="input-content">
                     <div class="input-text">
-                        <input type="text" required>
+                        <input type="text" required ng-model="$ctrl.hospedaje">
                         <hr>
                     </div>
                     <div class="unit">
@@ -306,14 +165,14 @@
         <div class="row first">
             <div class="col-md-12">
                 <div class="question-icon">
-                    <i class="icon-eco_personas"></i>
+                    <i class="icon-eco_basura"></i>
                 </div>
                 <div class="question-text">
                     Cantidad de residuos generados
                 </div>
                 <div class="input-content">
                     <div class="input-text">
-                        <input type="text" required>
+                        <input type="text" ng-model="$ctrl.residuos" required>
                         <hr>
                     </div>
                     <div class="unit">
@@ -323,4 +182,11 @@
             </div>
         </div>
     </div>
-</div>
+    <div class="container-fluid main" in-view="$ctrl.residInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+        <div class="row first">
+            <div class="col-md-12" style="text-align:center;">
+                <div class="btn-calc"><a ng-click="$ctrl.calcular()">Resultado</a>
+                </div>
+            </div>
+        </div>
+    </div>

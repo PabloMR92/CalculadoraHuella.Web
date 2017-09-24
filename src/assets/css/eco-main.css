@@ -133,7 +133,7 @@ intro {
     right: 0;
 }
 
-.start .btn-calc {
+.btn-calc {
     background-color: rgb(141, 166, 46);
     text-transform: uppercase;
     padding: 10px 75px;
@@ -431,41 +431,48 @@ a[ui-sref]:hover {
     color: inherit;
 }
 
-transpselector {
+transpselector,
+avionselector {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-transpselector>i {
+transpselector>i,
+avionselector>i {
     font-size: 25px;
     color: rgb(209, 14, 105);
     align-self: center;
 }
 
-transpselector>div {
+transpselector>div,
+avionselector>div {
     width: 100%;
 }
 
 @media (min-width: 750px) {
-    transpselector>div {
+    transpselector>div,
+    avionselector>div {
         width: auto;
     }
-    transpselector .dropdown {
+    transpselector .dropdown,
+    avionselector .dropdown {
         min-height: 50px;
         margin-left: 30px;
     }
 }
 
 @media (max-width: 750px) {
-    transpselector .dropdown {
+    transpselector .dropdown,
+    avionselector .dropdown {
         min-height: 65px;
         display: flex;
         justify-content: center;
     }
 }
 
-transpselector .dropdown {
+transpselector .dropdown,
+avionselector .dropdown {
     height: 50px;
 }
 
@@ -484,7 +491,8 @@ transpselector .dropdown {
     width: 100%;
 }
 
-transpselector .dropdown .btn {
+transpselector .dropdown .btn,
+avionselector .dropdown .btn {
     height: auto;
     background-color: transparent;
     font-weight: 700;
@@ -495,11 +503,12 @@ transpselector .dropdown .btn {
     border: 0;
 }
 
-transpselector .dropdown .btn:before {
+transpselector .dropdown .btn:before,
+avionselector .dropdown .btn:before {
     content: '';
     position: absolute;
     bottom: 0;
-    height: 2px;
+    height: 3px;
     width: 100%;
     background-color: rgb(209, 14, 105);
     padding-left: inherit;
@@ -510,19 +519,24 @@ transpselector .dropdown .btn:before {
     transform: scale(0);
 }
 
-transpselector .dropdown .btn.selected:before {
+transpselector .dropdown .btn.selected:before,
+avionselector .dropdown .btn.selected:before {
     transform: scale(1);
     transition: all 0.2s linear;
 }
 
-transpselector .dropdown .dropdown-menu li:not(.dropdown-divider) {
+transpselector .dropdown .dropdown-menu li:not(.dropdown-divider),
+avionselector .dropdown .dropdown-menu li:not(.dropdown-divider) {
     padding: 5px;
     text-align: center;
 }
 
 transpselector .btn-primary.active,
 transpselector .btn-primary:active,
-transpselector .show>.btn-primary.dropdown-toggle {
+transpselector .show>.btn-primary.dropdown-toggle,
+avionselector .btn-primary.active,
+avionselector .btn-primary:active,
+avionselector .show>.btn-primary.dropdown-toggle {
     background-color: transparent;
     font-weight: 700;
     color: rgb(93, 93, 93);
@@ -530,323 +544,8 @@ transpselector .show>.btn-primary.dropdown-toggle {
 }
 
 transpselector .btn-primary.focus,
-transpselector .btn-primary:focus {
+transpselector .btn-primary:focus,
+avionselector .btn-primary.focus,
+avionselector .btn-primary:focus {
     box-shadow: none;
-}
-
-.aoyue-select {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    width: auto;
-    height: auto;
-    border-bottom: 0px;
-    border-radius: 3px;
-    font-size: 12px;
-}
-
-.aoyue-select:not(:hover)>i.toggle.arrow-icon-down-dir {
-    display: block !important;
-}
-
-.aoyue-select:not(:hover)>i.toggle.arrow-icon-up-dir {
-    display: none !important;
-}
-
-.aoyue-select:not(:hover) label.option>input:not(:checked)~span.title {
-    display: none !important;
-}
-
-.aoyue-select>i.toggle {
-    position: absolute;
-    z-index: 4;
-    right: 0;
-    top: 10px;
-    color: #999;
-    font-size: x-large;
-}
-
-.aoyue-select .title,
-.aoyue-select .placeholder {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-    padding: 0 2em;
-    background: white;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    font-weight: 700;
-    color: rgb(93, 93, 93);
-    font-size: x-large;
-}
-
-.aoyue-select>input {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: block;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.aoyue-select>input:checked~i.toggle.arrow-icon-down-dir {
-    display: none;
-}
-
-.aoyue-select>input:checked~i.toggle.arrow-icon-up-dir {
-    display: block;
-}
-
-.aoyue-select>input:checked div.options label.option .title {
-    display: none !important;
-}
-
-.aoyue-select>input:not(:checked) {
-    z-index: 4;
-}
-
-.aoyue-select>input:not(:checked)~label.option>span.title {
-    display: none;
-}
-
-.aoyue-select>input:not(:checked)~i.toggle.arrow-icon-up-dir {
-    display: none;
-}
-
-.aoyue-select>input:not(:checked)~i.toggle.arrow-icon-down-dir {
-    display: block;
-}
-
-.aoyue-select>input:disabled {
-    cursor: no-drop;
-}
-
-.aoyue-select>span.placeholder {
-    position: relative;
-    z-index: 0;
-    display: inline-block;
-    width: 100%;
-    color: #999;
-    border-top: 0px;
-    background: rgb(239, 239, 239);
-}
-
-.aoyue-select label.option {
-    display: block;
-    overflow: hidden;
-    z-index: 1;
-    width: 100%;
-    transition: all 1s ease-out;
-    margin-bottom: 0px;
-}
-
-.aoyue-select label.option span.title {
-    position: relative;
-    z-index: 2;
-    transition: background .3s ease-out;
-}
-
-.aoyue-select label.option span.title i.icon {
-    padding-right: 8px;
-    color: #92a8d1;
-}
-
-.aoyue-select label.option span.title:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.1);
-}
-
-.aoyue-select label.option input {
-    display: none;
-}
-
-.aoyue-select label.option input:checked~span.title {
-    position: absolute;
-    display: block;
-    z-index: 3;
-    top: 0px;
-    font-size: 12px;
-    background: rgb(239, 239, 239);
-    border-top: 0px;
-    box-shadow: none;
-    color: inherit;
-    width: 100%;
-    color: rgb(93, 93, 93);
-    font-size: x-large;
-    width: 100%;
-}
-
-.aoyue-select label.option input:disabled~span.title {
-    background: #f9f9f9 !important;
-    color: #aaa;
-}
-
-.aoyue-select label.option input:disabled~span.title:hover {
-    color: #aaa;
-    background: none;
-    cursor: no-drop;
-}
-
-.aoyue-select2 {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    margin: auto;
-    width: 330px;
-    height: 100%;
-    border-bottom: 0px;
-    border-radius: 3px;
-    font-size: 12px;
-    box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, 0.5);
-}
-
-.aoyue-select2 i.toggle {
-    position: absolute;
-    z-index: 4;
-    right: 1.5em;
-    top: 1.6em;
-    color: #ccc;
-}
-
-.aoyue-select2 .title,
-.aoyue-select2 .placeholder {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 1.5em 2em;
-    background: white;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-}
-
-.aoyue-select2>label>input {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    display: block;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.aoyue-select2>label>input:checked {
-    z-index: 2;
-}
-
-.aoyue-select2>label>input:checked~i.toggle.icon-plus {
-    display: none;
-}
-
-.aoyue-select2>label>input:checked~i.toggle.icon-minus {
-    display: block;
-}
-
-.aoyue-select2>label>input:not(:checked)~i.toggle.icon-minus {
-    display: none;
-}
-
-.aoyue-select2>label>input:not(:checked)~i.toggle.icon-plus {
-    display: block;
-}
-
-.aoyue-select2>label>input:not(:checked)~label.option input:not(:checked)~.title {
-    display: none !important;
-}
-
-.aoyue-select2>label>input:disabled {
-    cursor: no-drop;
-}
-
-.aoyue-select2 label>span.placeholder {
-    position: relative;
-    z-index: 0;
-    display: inline-block;
-    width: 100%;
-    color: #999;
-    border-top: 0px;
-}
-
-.aoyue-select2 label.option {
-    display: block;
-    overflow: hidden;
-    z-index: 1;
-    width: 100%;
-    transition: all 1s ease-out;
-}
-
-.aoyue-select2 label.option span.title {
-    position: relative;
-    z-index: 2;
-    transition: background .3s ease-out;
-}
-
-.aoyue-select2 label.option span.title i.icon {
-    padding-right: 8px;
-    color: #92a8d1;
-}
-
-.aoyue-select2 label.option span.title:hover {
-    color: #fff;
-    background: rgba(146, 168, 209, 0.5);
-    box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.1);
-}
-
-.aoyue-select2 label.option input {
-    display: none;
-}
-
-.aoyue-select2 label.option input:checked~span.title {
-    position: absolute;
-    display: block;
-    z-index: 1;
-    top: 0px;
-    font-size: 12px;
-    background: #fff;
-    border-top: 0px;
-    box-shadow: none;
-    color: inherit;
-    width: 100%;
-}
-
-.aoyue-select2 label.option input:disabled~span.title {
-    background: #f9f9f9 !important;
-    color: #aaa;
-}
-
-.aoyue-select2 label.option input:disabled~span.title:hover {
-    color: #aaa;
-    background: none;
-    cursor: no-drop;
-}
-
-.aoyue-select label.option input:checked~span.title:before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 3px;
-    background-color: rgb(209, 14, 105);
-    left: 0;
-    top: 33px;
-    transform: scale(1);
-    transition: all 0.2s linear;
-}
-
-.aoyue-select label.option input~span.title:before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 3px;
-    left: 0;
-    top: 33px;
-    background-color: rgb(209, 14, 105);
-    transform: scale(0);
-    transition: all 0.01s linear;
 }

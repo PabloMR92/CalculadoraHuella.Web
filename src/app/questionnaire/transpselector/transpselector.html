@@ -1,12 +1,18 @@
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselectedtransp}">
+        <span ng.show="$ctrl.optionselectedtransp">
+            <i class="{{ $ctrl.optionselectedtransp.icon}}"></i>
+        </span>
         {{ $ctrl.optionselectedtransp ? $ctrl.optionselectedtransp.name : 'Elegir transporte'}}
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
         <li ng-click="$ctrl.optionselectedtransp = null">Ninguno</li>
         <li class="dropdown-divider"></li>
-        <li ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">{{ option.name }}</li>
+        <li ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">
+            <span>
+                <i class="{{option.icon}}"></i>
+            </span> {{ option.name }}</li>
     </ul>
 </div>
 <div class="dropdown" ng-show="$ctrl.optionselectedtransp.combOptions">
@@ -19,15 +25,6 @@
         <li class="dropdown-divider"></li>
         <li ng-repeat="option in $ctrl.optionselectedtransp.combOptions" ng-click="$ctrl.selectComb(option)">{{ option.name }}</li>
     </ul>
-</div>
-<div class="input-content">
-    <div class="input-text">
-        <input type="text" ng-model="$ctrl.pasajeros" required ng-change="$ctrl.compute()">
-        <hr>
-    </div>
-    <div class="unit">
-        (pasajeros)
-    </div>
 </div>
 <div class="input-content">
     <div class="input-text">

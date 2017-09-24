@@ -1,24 +1,160 @@
+.icon-eco_basura:before {
+    content: '\e800';
+}
 
-.icon-eco_basura:before { content: '\e800'; } /* '' */
-.icon-eco_barco:before { content: '\e801'; } /* '' */
-.icon-eco_avion:before { content: '\e802'; } /* '' */
-.icon-eco_auto:before { content: '\e803'; } /* '' */
-.icon-eco_agua_caliente:before { content: '\e805'; } /* '' */
-.icon-eco_colectivo:before { content: '\e806'; } /* '' */
-.icon-eco_casa:before { content: '\e807'; } /* '' */
-.icon-eco_tren:before { content: '\e808'; } /* '' */
-.icon-eco_subte:before { content: '\e809'; } /* '' */
-.icon-eco_puerta:before { content: '\e80a'; } /* '' */
-.icon-eco_personas:before { content: '\e80b'; } /* '' */
-.icon-eco_persona:before { content: '\e80c'; } /* '' */
-.icon-eco_moto:before { content: '\e80d'; } /* '' */
-.icon-eco_micro:before { content: '\e80e'; } /* '' */
-.icon-eco_hospedaje:before { content: '\e80f'; } /* '' */
-.icon-eco_horas:before { content: '\e810'; } /* '' */
-.icon-eco_gas:before { content: '\e811'; } /* '' */
-.icon-eco_electro:before { content: '\e812'; } /* '' */
-.icon-eco_electicidad:before { content: '\e813'; } /* '' */
-.icon-eco_casarodante:before { content: '\e814'; } /* '' */
-.icon-eco_bici:before { content: '\e816'; } /* '' */
-.icon-eco_calefaccion:before { content: '\e817'; } /* '' */
-.icon-eco_aire:before { content: '\e818'; } /* '' */
+
+/* '' */
+
+.icon-eco_barco:before {
+    content: '\e801';
+}
+
+
+/* '' */
+
+.icon-eco_avion:before {
+    content: '\e802';
+}
+
+
+/* '' */
+
+.icon-eco_auto:before {
+    content: '\e803';
+}
+
+
+/* '' */
+
+.icon-eco_agua_caliente:before {
+    content: '\e805';
+}
+
+
+/* '' */
+
+.icon-eco_colectivo:before {
+    content: '\e806';
+}
+
+
+/* '' */
+
+.icon-eco_casa:before {
+    content: '\e807';
+}
+
+
+/* '' */
+
+.icon-eco_tren:before {
+    content: '\e808';
+}
+
+
+/* '' */
+
+.icon-eco_subte:before {
+    content: '\e809';
+}
+
+
+/* '' */
+
+.icon-eco_puerta:before {
+    content: '\e80a';
+}
+
+
+/* '' */
+
+.icon-eco_personas:before {
+    content: '\e80b';
+}
+
+
+/* '' */
+
+.icon-eco_persona:before {
+    content: '\e80c';
+}
+
+
+/* '' */
+
+.icon-eco_moto:before {
+    content: '\e80d';
+}
+
+
+/* '' */
+
+.icon-eco_micro:before {
+    content: '\e80e';
+}
+
+
+/* '' */
+
+.icon-eco_hospedaje:before {
+    content: '\e80f';
+}
+
+
+/* '' */
+
+.icon-eco_horas:before {
+    content: '\e810';
+}
+
+
+/* '' */
+
+.icon-eco_gas:before {
+    content: '\e811';
+}
+
+
+/* '' */
+
+.icon-eco_electro:before {
+    content: '\e812';
+}
+
+
+/* '' */
+
+.icon-eco_electicidad:before {
+    content: '\e813';
+}
+
+
+/* '' */
+
+.icon-eco_casarodante:before {
+    content: '\e814';
+}
+
+
+/* '' */
+
+.icon-eco_bici:before {
+    content: '\e816';
+}
+
+
+/* '' */
+
+.icon-eco_calefaccion:before {
+    content: '\e817';
+}
+
+
+/* '' */
+
+.icon-eco_aire:before {
+    content: '\e818';
+}
+
+
+/* '' */

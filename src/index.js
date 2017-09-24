@@ -20,6 +20,7 @@ import './assets/js/dropdownfix';
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'ngstorage';
 
 import angularInview from 'angular-inview';
 
@@ -38,6 +39,10 @@ import {
     transpselector
 } from './app/questionnaire/transpselector/transpselector';
 
+import {
+    avionselector
+} from './app/questionnaire/avionselector/avionselector';
+
 import sticky from './app/directive/sticky';
 
 import nganimate from 'angular-animate';
@@ -45,9 +50,10 @@ import nganimate from 'angular-animate';
 export const app = 'app';
 
 angular
-    .module(app, ['ui.router', nganimate, angularInview.name, 'ngDropdowns'])
+    .module(app, ['ui.router', nganimate, angularInview.name, 'ngDropdowns', 'ngStorage'])
     .config(routesConfig)
     .component('intro', intro)
     .component('questionnaire', questionnaire)
     .component('transpselector', transpselector)
+    .component('avionselector', avionselector)
     .directive('sticky', sticky);

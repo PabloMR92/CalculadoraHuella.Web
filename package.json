@@ -9,6 +9,7 @@
     "desandro-classie": "^1.0.1",
     "expose-loader": "^0.7.3",
     "jquery": "^3.2.1",
+    "ngstorage": "^0.3.11",
     "tether": "^1.4.0"
   },
   "devDependencies": {
