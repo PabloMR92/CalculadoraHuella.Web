@@ -9,7 +9,7 @@
         <li ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">{{ option.name }}</li>
     </ul>
 </div>
-<div class="input-content">
+<div ng-show="$ctrl.optionselectedtransp" class="input-content">
     <div class="input-text">
         <input type="text" ng-model="$ctrl.escalas" required ng-change="$ctrl.compute()">
         <hr>
@@ -18,7 +18,7 @@
         (escalas)
     </div>
 </div>
-<div class="input-content">
+<div ng-show="$ctrl.optionselectedtransp" class="input-content">
     <div class="input-text">
         <input type="text" ng-model="$ctrl.recorrido" required ng-change="$ctrl.compute()">
         <hr>
@@ -27,5 +27,5 @@
         (km)
     </div>
 </div>
-<i ng-show="$ctrl.data.showOther" ng-click="$ctrl.addOther({selected: $ctrl.data})" class="arrow-icon-plus-circle" aria-hidden="true"></i>
+<i ng-show="$ctrl.data.showOther && $ctrl.optionselectedtransp" ng-click="$ctrl.addOther({selected: $ctrl.data})" class="arrow-icon-plus-circle" aria-hidden="true"></i>
 <i ng-show="!$ctrl.data.showOther" ng-click="$ctrl.remove({toRemove: $ctrl.data})" class="arrow-icon-minus-circle" aria-hidden="true"></i>

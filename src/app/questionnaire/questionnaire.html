@@ -18,7 +18,7 @@
     </div>
 </div>
 <div class="question-container">
-    <div class="container-fluid main">
+    <div class="container-fluid main separator">
         <div class="row first" in-view="$ctrl.homeInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
             <div class="col-md-12">
                 <div class="question-icon">
@@ -42,17 +42,17 @@
                 </div>
                 <div class="question-text">
                     Consumo bimestral de gas
-                    <div>¿Dónde encuentro el dato en mi factura? Metrogas</div>
-                    <div>Si no tiene las facturas a mano, haga <a href="https://www.metrogas.com.ar/hogares/Paginas/entende-tu-factura.aspx">click aqui</a> para calcular el consumo.</div>
+                    <div class="subtitle">¿Dónde encuentro el dato en mi factura? Metrogas</div>
+                    <div class="text">Si no tiene las facturas a mano, haga <a href="https://www.metrogas.com.ar/hogares/Paginas/entende-tu-factura.aspx">click aqui</a> para calcular el consumo.</div>
                 </div>
                 <div class="row">
-                    <div ng-repeat="bimestre in $ctrl.gasBimestres track by $index" class="input-content col-md-2">
+                    <div ng-repeat="bimestre in $ctrl.gasBimestres track by $index" class="input-content col-md-4">
                         <div class="input-text">
                             <input type="text" ng-model="bimestre.consumo" required>
                             <hr>
                         </div>
                         <div class="unit">
-                            {{ $index }}°
+                            {{ $index + 1 }}°
                         </div>
                     </div>
                 </div>
@@ -65,47 +65,47 @@
                 </div>
                 <div class="question-text">
                     Consumo bimestral de agua
-                    <div>¿Dónde encuentro el dato en mi factura? AySA</div>
-                    <div>Si no tiene las facturas a mano, haga <a href="http://www.aguascordobesas.com.ar/testconsumo/test.html">click aqui</a> para calcular el consumo.</div>
+                    <div class="subtitle">¿Dónde encuentro el dato en mi factura? AySA</div>
+                    <div class="text">Si no tiene las facturas a mano, haga <a href="http://www.aguascordobesas.com.ar/testconsumo/test.html">click aqui</a> para calcular el consumo.</div>
                 </div>
                 <div class="row">
-                    <div ng-repeat="bimestre in $ctrl.aguaBimestres track by $index" class="input-content col-md-2">
+                    <div ng-repeat="bimestre in $ctrl.aguaBimestres track by $index" class="input-content col-md-4">
                         <div class="input-text">
                             <input type="text" ng-model="bimestre.consumo" required>
                             <hr>
                         </div>
                         <div class="unit">
-                            {{ $index }}°
+                            {{ $index + 1}}°
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row first separator">
+        <div class="row first ">
             <div class="col-md-12">
                 <div class="question-icon">
                     <i class="icon-eco_electicidad"></i>
                 </div>
                 <div class="question-text">
                     Consumo bimestral de electricidad
-                    <div>¿Dónde encuentro el dato en mi factura? Edenor Edesur</div>
-                    <div>Si no tiene las facturas a mano, haga <a href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">click aqui</a> para calcular el consumo.</div>
+                    <div class="subtitle">¿Dónde encuentro el dato en mi factura? Edenor Edesur</div>
+                    <div class="text">Si no tiene las facturas a mano, haga <a href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">click aqui</a> para calcular el consumo.</div>
                 </div>
                 <div class="row">
-                    <div ng-repeat="bimestre in $ctrl.electricidadBimestres track by $index" class="input-content col-md-2">
+                    <div ng-repeat="bimestre in $ctrl.electricidadBimestres track by $index" class="input-content col-md-4">
                         <div class="input-text">
                             <input type="text" ng-model="bimestre.consumo" required>
                             <hr>
                         </div>
                         <div class="unit">
-                            {{ $index }}°
+                            {{ $index + 1 }}°
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid main" in-view="$ctrl.transpInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+    <div class="container-fluid main separator" in-view="$ctrl.transpInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
         <div class="row first">
             <div class="col-md-12">
                 <div class="question-text">
@@ -141,7 +141,7 @@
                 <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes track by $index"></transpselector>
             </div>
         </div>
-        <div class="row first separator">
+        <div class="row first ">
             <div class="col-md-12">
                 <div class="question-icon">
                     <i class="icon-eco_hospedaje"></i>
