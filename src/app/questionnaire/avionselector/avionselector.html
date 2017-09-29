@@ -4,14 +4,14 @@
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-        <li ng-click="$ctrl.optionselectedtransp = null">Ninguno</li>
+        <li ng-click="$ctrl.selectNone()">Ninguno</li>
         <li class="dropdown-divider"></li>
         <li ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">{{ option.name }}</li>
     </ul>
 </div>
 <div ng-show="$ctrl.optionselectedtransp" class="input-content">
     <div class="input-text">
-        <input type="text" ng-model="$ctrl.escalas" required ng-change="$ctrl.compute()">
+        <input type="number" ng-model="$ctrl.escalas" min="0" required ng-change="$ctrl.compute()">
         <hr>
     </div>
     <div class="unit">
@@ -20,7 +20,7 @@
 </div>
 <div ng-show="$ctrl.optionselectedtransp" class="input-content">
     <div class="input-text">
-        <input type="text" ng-model="$ctrl.recorrido" required ng-change="$ctrl.compute()">
+        <input type="number" ng-model="$ctrl.recorrido" min="0" required ng-change="$ctrl.compute()">
         <hr>
     </div>
     <div class="unit">

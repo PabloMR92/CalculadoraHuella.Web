@@ -20,6 +20,12 @@ export const avionselector = {
             }
         ];
 
+        function selectNone() {
+            vm.optionselectedtransp = null;
+            vm.recorrido = null;
+            compute();
+        }
+
         function selectTransp(option) {
             vm.optionselectedtransp = option;
             compute();
@@ -31,12 +37,27 @@ export const avionselector = {
             } else {
                 vm.data.consumo = 0;
             }
+
+            vm.data.obj = {
+                optionselectedtransp: vm.optionselectedtransp,
+                recorrido: vm.recorrido,
+                escalas: vm.escalas
+            };
         }
+
+        vm.$onInit = function() {
+            if (vm.data.obj) {
+                vm.optionselectedtransp = vm.data.obj.optionselectedtransp;
+                vm.recorrido = vm.data.obj.recorrido;
+                vm.escalas = vm.data.obj.escalas;
+            }
+        };
 
         angular.extend(vm, {
             traspOptions: traspOptions,
             selectTransp: selectTransp,
-            compute: compute
+            compute: compute,
+            selectNone: selectNone
         });
     }
 };

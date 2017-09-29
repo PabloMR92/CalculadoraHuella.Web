@@ -4,7 +4,7 @@
 <head>
     <base href="/">
     <meta charset="utf-8">
-    <title>FountainJS</title>
+    <title>Calculadora huella carbono</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png" />
@@ -18,18 +18,9 @@
             <span class="calcular-huella-header">Calcula tu huella</span>
         </div>
     </nav>
-    <main id="container">
+    <main class="main-container">
         <ui-view></ui-view>
     </main>
-
-    <!-- Footer -->
-    <footer class="py-4">
-        <div class="container-fluid huella-carbono-description">
-            <p class="m-0 header" ng-click="hideFooterInfo = !hideFooterInfo">¿Qué es la huella de carbono?</p>
-            <p class="m-0 footer-content" ng-show="hideFooterInfo">La huella de carbono es un indicador que mide el impacto sobre el calentamiento global. Este indicador ambiental es la suma absoluta de todas las emisiones de GEI causadas directa o indirectamente por un individuo, organización, evento o producto</p>
-        </div>
-        <!-- /.container -->
-    </footer>
 <script type="text/javascript" src="index.js"></script></body>
 
 </html>

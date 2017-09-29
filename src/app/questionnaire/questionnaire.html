@@ -1,192 +1,187 @@
-<script>
-    (function() {
-        [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el) {
-            new SelectFx(el);
-        });
-    })();
-</script>
-
-<div sticky scrollable-watcher="#container" class="question-progress sticky">
-    <div ng-class="{'active': $ctrl.activeHome}">
-        <i class="icon-eco_casa"></i> Hogar
+<div style="overflow: auto;flex: 1 1 auto;position:relative" id="container">
+    <div sticky scrollable-watcher="#container" class="question-progress sticky">
+        <div ng-class="{'active': $ctrl.activeHome}">
+            <i class="icon-eco_casa"></i> Hogar
+        </div>
+        <div ng-class="{'active': $ctrl.activeTransp}">
+            <i class="icon-eco_colectivo"></i> Transporte
+        </div>
+        <div ng-class="{'active': $ctrl.activeResid}">
+            <i class="icon-eco_basura"></i> Residuos
+        </div>
     </div>
-    <div ng-class="{'active': $ctrl.activeTransp}">
-        <i class="icon-eco_colectivo"></i> Transporte
-    </div>
-    <div ng-class="{'active': $ctrl.activeResid}">
-        <i class="icon-eco_basura"></i> Residuos
+    <div class="question-container">
+        <div class="container-fluid main separator">
+            <div class="row first" in-view="$ctrl.homeInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+                <div class="col-md-12">
+                    <div class="question-icon">
+                        <i class="icon-eco_personas"></i>
+                    </div>
+                    <div class="question-text">
+                        Cantidad de personas que comparten la vivienda
+                    </div>
+                    <div class="input-content">
+                        <div class="input-text">
+                            <input type="number" min="0" ng-model="$ctrl.habitantes" required>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row first ">
+                <div class="col-md-12">
+                    <div class="question-icon">
+                        <i class="icon-eco_gas"></i>
+                    </div>
+                    <div class="question-text">
+                        Consumo bimestral de gas
+                        <div class="subtitle">¿Dónde encuentro el dato en mi factura? Metrogas</div>
+                        <div class="text">Si no tiene las facturas a mano, haga <a target="_blank" href="https://www.metrogas.com.ar/hogares/Paginas/entende-tu-factura.aspx">click aqui</a> para calcular el consumo.</div>
+                    </div>
+                    <div class="row">
+                        <div ng-repeat="bimestre in $ctrl.gasBimestres track by $index" class="input-content col-md-4">
+                            <div class="input-text">
+                                <input type="number" min="0" ng-model="bimestre.consumo" required>
+                                <hr>
+                            </div>
+                            <div class="unit">
+                                {{ $index + 1 }}°
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row first ">
+                <div class="col-md-12">
+                    <div class="question-icon">
+                        <i class="icon-eco_agua_caliente"></i>
+                    </div>
+                    <div class="question-text">
+                        Consumo bimestral de agua
+                        <div class="subtitle">¿Dónde encuentro el dato en mi factura? AySA</div>
+                        <div class="text">Si no tiene las facturas a mano, haga <a target="_blank" href="http://www.aguascordobesas.com.ar/testconsumo/test.html">click aqui</a> para calcular el consumo.</div>
+                    </div>
+                    <div class="row">
+                        <div ng-repeat="bimestre in $ctrl.aguaBimestres track by $index" class="input-content col-md-4">
+                            <div class="input-text">
+                                <input type="number" min="0" ng-model="bimestre.consumo" required>
+                                <hr>
+                            </div>
+                            <div class="unit">
+                                {{ $index + 1}}°
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row first ">
+                <div class="col-md-12">
+                    <div class="question-icon">
+                        <i class="icon-eco_electicidad"></i>
+                    </div>
+                    <div class="question-text">
+                        Consumo bimestral de electricidad
+                        <div class="subtitle">¿Dónde encuentro el dato en mi factura? Edenor Edesur</div>
+                        <div class="text">Si no tiene las facturas a mano, haga <a target="_blank" href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">click aqui</a> para calcular el consumo.</div>
+                    </div>
+                    <div class="row">
+                        <div ng-repeat="bimestre in $ctrl.electricidadBimestres track by $index" class="input-content col-md-4">
+                            <div class="input-text">
+                                <input type="number" min="0" ng-model="bimestre.consumo" required>
+                                <hr>
+                            </div>
+                            <div class="unit">
+                                {{ $index + 1 }}°
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid main separator" in-view="$ctrl.transpInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+            <div class="row first">
+                <div class="col-md-12">
+                    <div class="question-text">
+                        Tipo de transporte y distancia de su traslado diario al trabjo o estudio
+                    </div>
+                    <transpselector data="commuting" add-other="$ctrl.addCommutingTransp(selected)" remove="$ctrl.removeCommutingTransp(toRemove)" ng-repeat="commuting in $ctrl.transpCommuting" scroll-if="!commuting.correcto" scrollable-watcher="#container"></transpselector>
+                </div>
+            </div>
+            <div class="row first">
+                <div class="col-md-12">
+                    <div class="question-text">
+                        Tipo de transporte y distancia de su traslado diario a otras actividades
+                    </div>
+                    <transpselector data="actividad" add-other="$ctrl.addActividadesTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades"></transpselector>
+                </div>
+            </div>
+            <div class="row first">
+                <div class="col-md-12">
+                    <div class="question-icon">
+                        <i class="icon-eco_avion"></i>
+                    </div>
+                    <div class="question-text">
+                        Viajes en avion realizados
+                    </div>
+                    <avionselector data="vuelo" add-other="$ctrl.addViajeVuelo(selected)" remove="$ctrl.removeViajeVuelo(toRemove)" ng-repeat="vuelo in $ctrl.transpVuelos"></avionselector>
+                </div>
+            </div>
+            <div class="row first">
+                <div class="col-md-12">
+                    <div class="question-text">
+                        Tipo de transporte y distancia durante el período de viaje
+                    </div>
+                    <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes"></transpselector>
+                </div>
+            </div>
+            <div class="row first ">
+                <div class="col-md-12">
+                    <div class="question-icon">
+                        <i class="icon-eco_hospedaje"></i>
+                    </div>
+                    <div class="question-text">
+                        Cantidad de días de hospedaje en viajes
+                    </div>
+                    <div class="input-content">
+                        <div class="input-text">
+                            <input type="number" min="0" required ng-model="$ctrl.hospedaje">
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            (noches)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid main" in-view="$ctrl.residInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
+            <div class="row first">
+                <div class="col-md-12">
+                    <div class="question-icon">
+                        <i class="icon-eco_basura"></i>
+                    </div>
+                    <div class="question-text">
+                        Cantidad de residuos generados
+                    </div>
+                    <div class="input-content">
+                        <div class="input-text">
+                            <input type="number" min="0" ng-model="$ctrl.residuos" required>
+                            <hr>
+                        </div>
+                        <div class="unit">
+                            (bolsas)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="question-container">
-    <div class="container-fluid main separator">
-        <div class="row first" in-view="$ctrl.homeInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
-            <div class="col-md-12">
-                <div class="question-icon">
-                    <i class="icon-eco_personas"></i>
-                </div>
-                <div class="question-text">
-                    Cantidad de personas que comparten la vivienda
-                </div>
-                <div class="input-content">
-                    <div class="input-text">
-                        <input type="text" ng-model="$ctrl.habitantes" required>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row first ">
-            <div class="col-md-12">
-                <div class="question-icon">
-                    <i class="icon-eco_gas"></i>
-                </div>
-                <div class="question-text">
-                    Consumo bimestral de gas
-                    <div class="subtitle">¿Dónde encuentro el dato en mi factura? Metrogas</div>
-                    <div class="text">Si no tiene las facturas a mano, haga <a target="_blank" href="https://www.metrogas.com.ar/hogares/Paginas/entende-tu-factura.aspx">click aqui</a> para calcular el consumo.</div>
-                </div>
-                <div class="row">
-                    <div ng-repeat="bimestre in $ctrl.gasBimestres track by $index" class="input-content col-md-4">
-                        <div class="input-text">
-                            <input type="text" ng-model="bimestre.consumo" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            {{ $index + 1 }}°
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row first ">
-            <div class="col-md-12">
-                <div class="question-icon">
-                    <i class="icon-eco_agua_caliente"></i>
-                </div>
-                <div class="question-text">
-                    Consumo bimestral de agua
-                    <div class="subtitle">¿Dónde encuentro el dato en mi factura? AySA</div>
-                    <div class="text">Si no tiene las facturas a mano, haga <a target="_blank" href="http://www.aguascordobesas.com.ar/testconsumo/test.html">click aqui</a> para calcular el consumo.</div>
-                </div>
-                <div class="row">
-                    <div ng-repeat="bimestre in $ctrl.aguaBimestres track by $index" class="input-content col-md-4">
-                        <div class="input-text">
-                            <input type="text" ng-model="bimestre.consumo" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            {{ $index + 1}}°
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row first ">
-            <div class="col-md-12">
-                <div class="question-icon">
-                    <i class="icon-eco_electicidad"></i>
-                </div>
-                <div class="question-text">
-                    Consumo bimestral de electricidad
-                    <div class="subtitle">¿Dónde encuentro el dato en mi factura? Edenor Edesur</div>
-                    <div class="text">Si no tiene las facturas a mano, haga <a target="_blank" href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">click aqui</a> para calcular el consumo.</div>
-                </div>
-                <div class="row">
-                    <div ng-repeat="bimestre in $ctrl.electricidadBimestres track by $index" class="input-content col-md-4">
-                        <div class="input-text">
-                            <input type="text" ng-model="bimestre.consumo" required>
-                            <hr>
-                        </div>
-                        <div class="unit">
-                            {{ $index + 1 }}°
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+<!-- Footer -->
+<footer class="py-4">
+    <div class="container-fluid huella-carbono-description" ng-click="$ctrl.calcular()">
+        <div class="btn-calc"><a>Calculá tu huella ahora</a>
         </div>
     </div>
-    <div class="container-fluid main separator" in-view="$ctrl.transpInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
-        <div class="row first">
-            <div class="col-md-12">
-                <div class="question-text">
-                    Tipo de transporte y distancia de su traslado diario al trabjo o estudio
-                </div>
-                <transpselector data="commuting" add-other="$ctrl.addCommutingTransp(selected)" remove="$ctrl.removeCommutingTransp(toRemove)" ng-repeat="commuting in $ctrl.transpCommuting track by $index"></transpselector>
-            </div>
-        </div>
-        <div class="row first">
-            <div class="col-md-12">
-                <div class="question-text">
-                    Tipo de transporte y distancia de su traslado diario a otras actividades
-                </div>
-                <transpselector data="actividad" add-other="$ctrl.addActividadesTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades track by $index"></transpselector>
-            </div>
-        </div>
-        <div class="row first">
-            <div class="col-md-12">
-                <div class="question-icon">
-                    <i class="icon-eco_avion"></i>
-                </div>
-                <div class="question-text">
-                    Viajes en avion realizados
-                </div>
-                <avionselector data="vuelo" add-other="$ctrl.addViajeVuelo(selected)" remove="$ctrl.removeViajeVuelo(toRemove)" ng-repeat="vuelo in $ctrl.transpVuelos track by $index"></avionselector>
-            </div>
-        </div>
-        <div class="row first">
-            <div class="col-md-12">
-                <div class="question-text">
-                    Tipo de transporte y distancia durante el período de viaje
-                </div>
-                <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes track by $index"></transpselector>
-            </div>
-        </div>
-        <div class="row first ">
-            <div class="col-md-12">
-                <div class="question-icon">
-                    <i class="icon-eco_hospedaje"></i>
-                </div>
-                <div class="question-text">
-                    Cantidad de días de hospedaje en viajes
-                </div>
-                <div class="input-content">
-                    <div class="input-text">
-                        <input type="text" required ng-model="$ctrl.hospedaje">
-                        <hr>
-                    </div>
-                    <div class="unit">
-                        (noches)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid main" in-view="$ctrl.residInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
-        <div class="row first">
-            <div class="col-md-12">
-                <div class="question-icon">
-                    <i class="icon-eco_basura"></i>
-                </div>
-                <div class="question-text">
-                    Cantidad de residuos generados
-                </div>
-                <div class="input-content">
-                    <div class="input-text">
-                        <input type="text" ng-model="$ctrl.residuos" required>
-                        <hr>
-                    </div>
-                    <div class="unit">
-                        (bolsas)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid main" in-view="$ctrl.residInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true }">
-        <div class="row first">
-            <div class="col-md-12" style="text-align:center;">
-                <div class="btn-calc"><a ng-click="$ctrl.calcular()">Resultado</a>
-                </div>
-            </div>
-        </div>
-    </div>
+</footer>

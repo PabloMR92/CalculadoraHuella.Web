@@ -10,6 +10,7 @@ module.exports = {
         'space-before-function-paren': 0,
         'angular/window-service': 0,
         'object-shorthand': 0,
-        'no-negated-condition': 0
+        'no-negated-condition': 0,
+        'angular/controller-name': 0
     }
 }

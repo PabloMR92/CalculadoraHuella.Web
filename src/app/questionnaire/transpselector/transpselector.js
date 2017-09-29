@@ -3,7 +3,8 @@ export const transpselector = {
     bindings: {
         data: '=',
         addOther: '&',
-        remove: '&'
+        remove: '&',
+        correct: '<'
     },
     controller: function() {
         const vm = this;
@@ -76,13 +77,26 @@ export const transpselector = {
             }
         ];
 
+        function selectNone() {
+            vm.optionselectedtransp = null;
+            vm.optionselectedcomb = null;
+            vm.recorrido = null;
+            vm.data.valido = true;
+            vm.data.correcto = true;
+            compute();
+        }
+
         function selectTransp(option) {
             vm.optionselectedtransp = option;
+            vm.data.valido = angular.isDefined(vm.optionselectedcomb) && (vm.recorrido);
+            vm.data.correcto = true;
             compute();
         }
 
         function selectComb(option) {
             vm.optionselectedcomb = option;
+            vm.data.valido = angular.isDefined(vm.optionselectedtransp) && angular.isDefined(vm.recorrido);
+            vm.data.correcto = true;
             compute();
         }
 
@@ -93,13 +107,27 @@ export const transpselector = {
             } else {
                 vm.data.consumo = 0;
             }
+            vm.data.obj = {
+                optionselectedtransp: vm.optionselectedtransp,
+                optionselectedcomb: vm.optionselectedcomb,
+                recorrido: vm.recorrido
+            };
         }
+
+        vm.$onInit = function() {
+            if (vm.data.obj) {
+                vm.optionselectedtransp = vm.data.obj.optionselectedtransp;
+                vm.optionselectedcomb = vm.data.obj.optionselectedcomb;
+                vm.recorrido = vm.data.obj.recorrido;
+            }
+        };
 
         angular.extend(vm, {
             traspOptions: traspOptions,
             selectTransp: selectTransp,
             selectComb: selectComb,
-            compute: compute
+            compute: compute,
+            selectNone: selectNone
         });
     }
 };

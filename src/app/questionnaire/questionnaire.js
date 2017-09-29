@@ -1,6 +1,8 @@
+const modal = require('./result/result.html');
+
 export const questionnaire = {
     template: require('./questionnaire.html'),
-    controller: function($log, $localStorage) {
+    controller: function($log, $localStorage, Popeye, $timeout) {
         const vm = this;
         angular.extend(vm, {
             activeHome: false,
@@ -84,13 +86,12 @@ export const questionnaire = {
             consumo: null
         }];
 
-        vm.transpCommuting = [];
-
         vm.addCommutingTransp = selected => {
             vm.transpCommuting.push({
                 consumo: 0,
-                valido: false,
-                showOther: true
+                valido: true,
+                showOther: true,
+                correcto: true
             });
             if (selected) {
                 selected.showOther = false;
@@ -102,17 +103,17 @@ export const questionnaire = {
             vm.transpCommuting = vm.transpCommuting.filter(item => {
                 return item !== toRemove;
             });
+            if (vm.transpCommuting.length === 0) {
+                vm.addCommutingTransp();
+            }
         };
-
-        vm.addCommutingTransp();
-
-        vm.transpActividades = [];
 
         vm.addActividadTransp = selected => {
             vm.transpActividades.push({
                 consumo: 0,
-                valido: false,
-                showOther: true
+                valido: true,
+                showOther: true,
+                correcto: true
             });
             if (selected) {
                 selected.showOther = false;
@@ -124,17 +125,17 @@ export const questionnaire = {
             vm.transpActividades = vm.transpActividades.filter(item => {
                 return item !== toRemove;
             });
+            if (vm.transpActividades.length === 0) {
+                vm.addActividadTransp();
+            }
         };
-
-        vm.addActividadTransp();
-
-        vm.transpViajes = [];
 
         vm.addViajeTransp = selected => {
             vm.transpViajes.push({
                 consumo: 0,
-                valido: false,
-                showOther: true
+                valido: true,
+                showOther: true,
+                correcto: true
             });
             if (selected) {
                 selected.showOther = false;
@@ -146,17 +147,17 @@ export const questionnaire = {
             vm.transpViajes = vm.transpViajes.filter(item => {
                 return item !== toRemove;
             });
+            if (vm.transpViajes.length === 0) {
+                vm.addViajeTransp();
+            }
         };
-
-        vm.addViajeTransp();
-
-        vm.transpVuelos = [];
 
         vm.addViajeVuelo = selected => {
             vm.transpVuelos.push({
                 consumo: 0,
-                valido: false,
-                showOther: true
+                valido: true,
+                showOther: true,
+                correcto: true
             });
             if (selected) {
                 selected.showOther = false;
@@ -168,75 +169,182 @@ export const questionnaire = {
             vm.transpVuelos = vm.transpVuelos.filter(item => {
                 return item !== toRemove;
             });
+            if (vm.transpVuelos.length === 0) {
+                vm.addViajeVuelo();
+            }
         };
 
-        vm.addViajeVuelo();
+        function getInvalid(array) {
+            const invalidItem = array.filter(item => {
+                return !item.valido;
+            });
+            return invalidItem[0];
+        }
+
+        function resetCorrecto(array) {
+            array.forEach(item => {
+                item.correcto = true;
+            });
+        }
 
         vm.calcular = () => {
-            const habitantes = vm.habitantes ? vm.habitantes : 0;
+            const invalidCommuting = getInvalid(vm.transpCommuting);
+            if (invalidCommuting) {
+                invalidCommuting.correcto = false;
+            }
+            const invalidActividad = getInvalid(vm.transpActividades);
+            if (invalidActividad) {
+                invalidActividad.correcto = false;
+            }
+            const invalidViaje = getInvalid(vm.transpViajes);
+            if (invalidViaje) {
+                invalidViaje.correcto = false;
+            }
+            const invalidVuelo = getInvalid(vm.transpVuelos);
+            if (invalidVuelo) {
+                invalidVuelo.correcto = false;
+            }
 
-            const totalCommuting = vm.transpCommuting.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
-            }, 0);
+            if (!invalidCommuting && !invalidActividad && !invalidViaje && !invalidVuelo) {
+                const habitantes = vm.habitantes ? vm.habitantes : 0;
 
-            const totalActividades = vm.transpActividades.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
-            }, 0);
+                const totalCommuting = vm.transpCommuting.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
+                }, 0);
 
-            const totalViajes = vm.transpViajes.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
-            }, 0);
+                const totalActividades = vm.transpActividades.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
+                }, 0);
 
-            const totalVuelos = vm.transpVuelos.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
-            }, 0);
+                const totalViajes = vm.transpViajes.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
+                }, 0);
 
-            const hospedajeFactor = vm.hospedaje ? vm.hospedaje : 0;
-            const totalHospedaje = hospedajeFactor * 12;
+                const totalVuelos = vm.transpVuelos.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
+                }, 0);
 
-            const residuosFactor = vm.residuos ? vm.residuos : 0;
-            const totalResiduos = habitantes === 0 ? 0 : (residuosFactor / habitantes) * 6.671 * 365;
+                const hospedajeFactor = vm.hospedaje ? vm.hospedaje : 0;
+                const totalHospedaje = hospedajeFactor * 12;
 
-            const totalElectricidad = habitantes === 0 ? 0 : vm.electricidadBimestres.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
-            }, 0);
+                const residuosFactor = vm.residuos ? vm.residuos : 0;
+                const totalResiduos = habitantes === 0 ? 0 : (residuosFactor / habitantes) * 6.671 * 365;
 
-            const totalGas = habitantes === 0 ? 0 : vm.gasBimestres.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
-            }, 0);
+                const totalElectricidad = habitantes === 0 ? 0 : vm.electricidadBimestres.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
+                }, 0);
 
-            const totalAgua = habitantes === 0 ? 0 : vm.aguaBimestres.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
-            }, 0);
+                const totalGas = habitantes === 0 ? 0 : vm.gasBimestres.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
+                }, 0);
 
-            $log.info('Consumo total:' + (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua));
+                const totalAgua = habitantes === 0 ? 0 : vm.aguaBimestres.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
+                }, 0);
 
-            $localStorage.previousResult = {
-                habitantes: vm.habitantes,
-                transpCommuting: vm.transpCommuting,
-                transpActividades: vm.transpActividades,
-                transpViajes: vm.transpViajes,
-                transpVuelos: vm.transpVuelos,
-                hospedaje: vm.hospedaje,
-                residuos: vm.residuos,
-                electricidadBimestres: vm.electricidadBimestres,
-                gasBimestres: vm.gasBimestres,
-                aguaBimestres: vm.aguaBimestres
-            };
+                $log.info('Consumo total:' + (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua));
+
+                Popeye.openModal({
+                    template: modal,
+                    controller: 'resultController as ctrl',
+                    resolve: {
+                        result: function() {
+                            return (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua);
+                        }
+                    }
+                });
+
+                $localStorage.previousResult = {
+                    habitantes: vm.habitantes,
+                    transpCommuting: vm.transpCommuting,
+                    transpActividades: vm.transpActividades,
+                    transpViajes: vm.transpViajes,
+                    transpVuelos: vm.transpVuelos,
+                    hospedaje: vm.hospedaje,
+                    residuos: vm.residuos,
+                    electricidadBimestres: vm.electricidadBimestres,
+                    gasBimestres: vm.gasBimestres,
+                    aguaBimestres: vm.aguaBimestres
+                };
+            } else {
+                $timeout(() => {
+                    resetCorrecto(vm.transpCommuting);
+                    resetCorrecto(vm.transpActividades);
+                    resetCorrecto(vm.transpViajes);
+                    resetCorrecto(vm.transpVuelos);
+                });
+            }
         };
+
+        vm.transpActividades = [];
+        vm.transpCommuting = [];
+        vm.transpViajes = [];
+        vm.transpVuelos = [];
+
+        function setPreviousResultlShowOther(array) {
+            array.forEach(item => {
+                item.showOther = false;
+            });
+            array[array.length - 1].showOther = true;
+        }
 
         this.$onInit = function() {
             if ($localStorage.previousResult) {
-                vm.habitantes = $localStorage.previousResult.habitantes;
-                vm.transpCommuting = $localStorage.previousResult.transpCommuting;
-                vm.transpActividades = $localStorage.previousResult.transpActividades;
-                vm.transpViajes = $localStorage.previousResult.transpViajes;
-                vm.transpVuelos = $localStorage.previousResult.transpVuelos;
-                vm.hospedaje = $localStorage.previousResult.hospedaje;
-                vm.residuos = $localStorage.previousResult.residuos;
+                vm.habitantes = parseInt($localStorage.previousResult.habitantes, 10);
+                vm.hospedaje = parseInt($localStorage.previousResult.hospedaje, 10);
+                vm.residuos = parseInt($localStorage.previousResult.residuos, 10);
                 vm.electricidadBimestres = $localStorage.previousResult.electricidadBimestres;
                 vm.gasBimestres = $localStorage.previousResult.gasBimestres;
                 vm.aguaBimestres = $localStorage.previousResult.aguaBimestres;
+
+                const filterTranspCommuting = $localStorage.previousResult.transpCommuting.filter(item => {
+                    return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
+                });
+
+                if (filterTranspCommuting.length > 0) {
+                    setPreviousResultlShowOther(filterTranspCommuting);
+                    vm.transpCommuting = filterTranspCommuting;
+                } else {
+                    vm.addCommutingTransp();
+                }
+
+                const filterTranspActividades = $localStorage.previousResult.transpActividades.filter(item => {
+                    return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
+                });
+
+                if (filterTranspActividades.length > 0) {
+                    setPreviousResultlShowOther(filterTranspActividades);
+                    vm.transpActividades = filterTranspActividades;
+                } else {
+                    vm.addActividadTransp();
+                }
+
+                const filterTranspViajes = $localStorage.previousResult.transpViajes.filter(item => {
+                    return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
+                });
+
+                if (filterTranspViajes.length > 0) {
+                    setPreviousResultlShowOther(filterTranspViajes);
+                    vm.transpViajes = filterTranspViajes;
+                } else {
+                    vm.addViajeTransp();
+                }
+
+                const filterTranspVuelos = $localStorage.previousResult.transpVuelos.filter(item => {
+                    return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
+                });
+
+                if (filterTranspVuelos.length > 0) {
+                    setPreviousResultlShowOther(filterTranspVuelos);
+                    vm.transpVuelos = filterTranspVuelos;
+                } else {
+                    vm.addViajeVuelo();
+                }
+            } else {
+                vm.addCommutingTransp();
+                vm.addActividadTransp();
+                vm.addViajeTransp();
+                vm.addViajeVuelo();
             }
         };
     }
