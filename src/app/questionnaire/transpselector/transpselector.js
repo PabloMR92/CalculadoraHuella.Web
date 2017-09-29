@@ -81,14 +81,13 @@ export const transpselector = {
             vm.optionselectedtransp = null;
             vm.optionselectedcomb = null;
             vm.recorrido = null;
-            vm.data.valido = true;
             vm.data.correcto = true;
             compute();
+            vm.data.valido = true;
         }
 
         function selectTransp(option) {
             vm.optionselectedtransp = option;
-            vm.data.valido = angular.isDefined(vm.optionselectedcomb) && (vm.recorrido);
             vm.data.correcto = true;
             compute();
         }
@@ -100,6 +99,12 @@ export const transpselector = {
             compute();
         }
 
+        this.$onChanges = function(changesObj) {
+            if (changesObj.correct && changesObj.correct.currentValue) {
+                vm.showError = true;
+            }
+        };
+
         function compute() {
             if (vm.optionselectedtransp) {
                 const factor = vm.optionselectedtransp.factor !== null ? vm.optionselectedtransp.factor : (vm.optionselectedcomb === null || angular.isUndefined(vm.optionselectedcomb) ? 0 : vm.optionselectedcomb.factor);
@@ -107,6 +112,8 @@ export const transpselector = {
             } else {
                 vm.data.consumo = 0;
             }
+            vm.data.valido = vm.optionselectedtransp !== null && vm.recorrido !== null && ((vm.optionselectedtransp.combOptions !== null && vm.optionselectedcomb !== null) || !vm.optionselectedtransp.combOptions);
+
             vm.data.obj = {
                 optionselectedtransp: vm.optionselectedtransp,
                 optionselectedcomb: vm.optionselectedcomb,
