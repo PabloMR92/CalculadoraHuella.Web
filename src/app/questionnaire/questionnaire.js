@@ -7,6 +7,7 @@ export const questionnaire = {
 
 /** @ngInject */
 function questionnaireController($log, $localStorage, Popeye, $timeout) {
+    // $localStorage.$reset();
     const vm = this;
     angular.extend(vm, {
         activeHome: false,
@@ -95,7 +96,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             consumo: 0,
             valido: true,
             showOther: true,
-            correcto: true
+            highlight: false
         });
         if (selected) {
             selected.showOther = false;
@@ -117,7 +118,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             consumo: 0,
             valido: true,
             showOther: true,
-            correcto: true
+            highlight: false
         });
         if (selected) {
             selected.showOther = false;
@@ -139,7 +140,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             consumo: 0,
             valido: true,
             showOther: true,
-            correcto: true
+            highlight: false
         });
         if (selected) {
             selected.showOther = false;
@@ -161,7 +162,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             consumo: 0,
             valido: true,
             showOther: true,
-            correcto: true
+            highlight: false
         });
         if (selected) {
             selected.showOther = false;
@@ -182,34 +183,61 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
         const invalidItem = array.filter(item => {
             return !item.valido;
         });
-        return invalidItem[0];
+        return invalidItem;
     }
 
-    function resetCorrecto(array) {
+    function resetHighlight(array) {
         array.forEach(item => {
-            item.correcto = true;
+            item.highlight = false;
         });
     }
 
     vm.calcular = () => {
         const invalidCommuting = getInvalid(vm.transpCommuting);
-        if (invalidCommuting) {
-            invalidCommuting.correcto = false;
-        }
-        const invalidActividad = getInvalid(vm.transpActividades);
-        if (invalidActividad) {
-            invalidActividad.correcto = false;
-        }
-        const invalidViaje = getInvalid(vm.transpViajes);
-        if (invalidViaje) {
-            invalidViaje.correcto = false;
-        }
-        const invalidVuelo = getInvalid(vm.transpVuelos);
-        if (invalidVuelo) {
-            invalidVuelo.correcto = false;
+        let highlighted = false;
+
+        if (invalidCommuting.length > 0) {
+            if (!highlighted) {
+                invalidCommuting[0].highlight = true;
+                highlighted = true;
+            }
+            invalidCommuting.forEach(item => {
+                item.showError = true;
+            });
         }
 
-        if (!invalidCommuting && !invalidActividad && !invalidViaje && !invalidVuelo) {
+        const invalidActividad = getInvalid(vm.transpActividades);
+        if (invalidActividad.length > 0) {
+            if (!highlighted) {
+                invalidActividad[0].highlight = true;
+                highlighted = true;
+            }
+            invalidActividad.forEach(item => {
+                item.showError = true;
+            });
+        }
+        const invalidViaje = getInvalid(vm.transpViajes);
+        if (invalidViaje.length > 0) {
+            if (!highlighted) {
+                invalidViaje[0].highlight = true;
+                highlighted = true;
+            }
+            invalidViaje.forEach(item => {
+                item.showError = true;
+            });
+        }
+        const invalidVuelo = getInvalid(vm.transpVuelos);
+        if (invalidVuelo.length > 0) {
+            if (!highlighted) {
+                invalidVuelo[0].highlight = true;
+                highlighted = true;
+            }
+            invalidVuelo.forEach(item => {
+                item.showError = true;
+            });
+        }
+
+        if (!highlighted) {
             const habitantes = vm.habitantes ? vm.habitantes : 0;
 
             const totalCommuting = vm.transpCommuting.reduce((valorAnterior, valorActual) => {
@@ -246,7 +274,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
             }, 0);
 
-            $log.info('Consumo total:' + (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua));
+            // $log.info('Consumo total:' + (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua));
 
             Popeye.openModal({
                 template: modal,
@@ -272,10 +300,10 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             };
         } else {
             $timeout(() => {
-                resetCorrecto(vm.transpCommuting);
-                resetCorrecto(vm.transpActividades);
-                resetCorrecto(vm.transpViajes);
-                resetCorrecto(vm.transpVuelos);
+                resetHighlight(vm.transpCommuting);
+                resetHighlight(vm.transpActividades);
+                resetHighlight(vm.transpViajes);
+                resetHighlight(vm.transpVuelos);
             });
         }
     };
@@ -294,14 +322,15 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
 
     this.$onInit = function() {
         if ($localStorage.previousResult) {
-            vm.habitantes = parseInt($localStorage.previousResult.habitantes, 10);
-            vm.hospedaje = parseInt($localStorage.previousResult.hospedaje, 10);
-            vm.residuos = parseInt($localStorage.previousResult.residuos, 10);
-            vm.electricidadBimestres = $localStorage.previousResult.electricidadBimestres;
-            vm.gasBimestres = $localStorage.previousResult.gasBimestres;
-            vm.aguaBimestres = $localStorage.previousResult.aguaBimestres;
+            const previousResult = angular.copy($localStorage.previousResult);
+            vm.habitantes = parseInt(previousResult.habitantes, 10);
+            vm.hospedaje = parseInt(previousResult.hospedaje, 10);
+            vm.residuos = parseInt(previousResult.residuos, 10);
+            vm.electricidadBimestres = previousResult.electricidadBimestres;
+            vm.gasBimestres = previousResult.gasBimestres;
+            vm.aguaBimestres = previousResult.aguaBimestres;
 
-            const filterTranspCommuting = $localStorage.previousResult.transpCommuting.filter(item => {
+            const filterTranspCommuting = previousResult.transpCommuting.filter(item => {
                 return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
             });
 
@@ -312,7 +341,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 vm.addCommutingTransp();
             }
 
-            const filterTranspActividades = $localStorage.previousResult.transpActividades.filter(item => {
+            const filterTranspActividades = previousResult.transpActividades.filter(item => {
                 return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
             });
 
@@ -323,7 +352,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 vm.addActividadTransp();
             }
 
-            const filterTranspViajes = $localStorage.previousResult.transpViajes.filter(item => {
+            const filterTranspViajes = previousResult.transpViajes.filter(item => {
                 return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
             });
 
@@ -334,7 +363,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 vm.addViajeTransp();
             }
 
-            const filterTranspVuelos = $localStorage.previousResult.transpVuelos.filter(item => {
+            const filterTranspVuelos = previousResult.transpVuelos.filter(item => {
                 return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
             });
 

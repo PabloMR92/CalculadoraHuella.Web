@@ -105,7 +105,7 @@
                     <div class="question-text">
                         Tipo de transporte y distancia de su traslado diario al trabjo o estudio
                     </div>
-                    <transpselector data="commuting" add-other="$ctrl.addCommutingTransp(selected)" remove="$ctrl.removeCommutingTransp(toRemove)" ng-repeat="commuting in $ctrl.transpCommuting" scroll-if="!commuting.correcto" scrollable-watcher="#container"></transpselector>
+                    <transpselector data="commuting" add-other="$ctrl.addCommutingTransp(selected)" remove="$ctrl.removeCommutingTransp(toRemove)" ng-repeat="commuting in $ctrl.transpCommuting" scroll-if="commuting.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
             </div>
             <div class="row first">
@@ -113,7 +113,7 @@
                     <div class="question-text">
                         Tipo de transporte y distancia de su traslado diario a otras actividades
                     </div>
-                    <transpselector data="actividad" add-other="$ctrl.addActividadesTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades" scroll-if="!actividad.correcto" scrollable-watcher="#container"></transpselector>
+                    <transpselector data="actividad" add-other="$ctrl.addActividadesTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades" scroll-if="actividad.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
             </div>
             <div class="row first">
@@ -124,7 +124,7 @@
                     <div class="question-text">
                         Viajes en avion realizados
                     </div>
-                    <avionselector data="vuelo" add-other="$ctrl.addViajeVuelo(selected)" remove="$ctrl.removeViajeVuelo(toRemove)" ng-repeat="vuelo in $ctrl.transpVuelos" scroll-if="!vuelo.correcto" scrollable-watcher="#container"></avionselector>
+                    <avionselector data="vuelo" add-other="$ctrl.addViajeVuelo(selected)" remove="$ctrl.removeViajeVuelo(toRemove)" ng-repeat="vuelo in $ctrl.transpVuelos" scroll-if="vuelo.highlight" scrollable-watcher="#container"></avionselector>
                 </div>
             </div>
             <div class="row first">
@@ -132,7 +132,7 @@
                     <div class="question-text">
                         Tipo de transporte y distancia durante el período de viaje
                     </div>
-                    <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes" scroll-if="!viaje.correcto" scrollable-watcher="#container"></transpselector>
+                    <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes" scroll-if="viaje.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
             </div>
             <div class="row first ">
