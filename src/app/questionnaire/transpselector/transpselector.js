@@ -103,7 +103,7 @@ export const transpselector = {
             } else {
                 vm.data.consumo = 0;
             }
-            vm.data.valido = vm.optionselectedtransp !== null && vm.recorrido !== null && ((vm.optionselectedtransp.combOptions !== null && vm.optionselectedcomb !== null) || !vm.optionselectedtransp.combOptions);
+            vm.data.valido = (vm.optionselectedtransp !== null && angular.isDefined(vm.optionselectedtransp)) && (vm.recorrido !== null && angular.isDefined(vm.recorrido)) && ((vm.optionselectedtransp.combOptions !== null && angular.isDefined(vm.optionselectedtransp.combOptions) && vm.optionselectedcomb !== null && angular.isDefined(vm.optionselectedcomb)) || !vm.optionselectedtransp.combOptions);
 
             if (vm.data.valido) {
                 vm.data.showError = false;
