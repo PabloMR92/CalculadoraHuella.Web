@@ -95,9 +95,5 @@
         "extends": [
             "xo-space/esnext"
         ]
-    },
-    "engines": {
-        "node": "6.10.0",
-        "npm": "3.10.10"
     }
 }
