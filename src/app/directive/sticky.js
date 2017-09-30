@@ -9,7 +9,7 @@ function stickyDirective($compile) {
             stickyPusher.insertBefore(element);
             $compile(stickyPusher)(scope);
 
-            const origOffsetY = element.scrollTop();
+            const origOffsetY = element.offset().top;
 
             if (attrs.scrollableWatcher) {
                 const scrollableWatcher = angular.element(attrs.scrollableWatcher);

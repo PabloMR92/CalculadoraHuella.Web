@@ -54,6 +54,10 @@ intro {
     display: flex;
 }
 
+intro {
+    flex-direction: column;
+}
+
 .bkg {
     background-image: url("../img/mujer_arena.jpg");
     background-repeat: no-repeat;
@@ -87,6 +91,13 @@ intro {
 }
 
 .huella-carbono-description {
+    padding-right: 50px;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.calcular-btn-container {
     padding-right: 50px;
     padding-left: 50px;
     display: flex;

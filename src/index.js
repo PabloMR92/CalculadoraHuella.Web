@@ -47,6 +47,10 @@ import {
 } from './app/questionnaire/avionselector/avionselector';
 
 import {
+    navtop
+} from './app/shared/navtop/navtop';
+
+import {
     resultController
 } from './app/questionnaire/result/result.ctrl';
 
@@ -64,6 +68,7 @@ angular
     .component('questionnaire', questionnaire)
     .component('transpselector', transpselector)
     .component('avionselector', avionselector)
+    .component('navtop', navtop)
     .controller('resultController', resultController)
     .directive('sticky', sticky)
     .directive('scrollIf', scrollIf);

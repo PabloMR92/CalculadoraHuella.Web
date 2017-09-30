@@ -1,4 +1,5 @@
 <div style="overflow: auto;flex: 1 1 auto;position:relative" id="container">
+    <navtop></navtop>
     <div sticky scrollable-watcher="#container" class="question-progress sticky">
         <div ng-class="{'active': $ctrl.activeHome}">
             <i class="icon-eco_casa"></i> Hogar
@@ -180,7 +181,7 @@
 
 <!-- Footer -->
 <footer class="py-4">
-    <div class="container-fluid huella-carbono-description" ng-click="$ctrl.calcular()">
+    <div class="container-fluid calcular-btn-container" ng-click="$ctrl.calcular()">
         <div class="btn-calc"><a>Calculá tu huella ahora</a>
         </div>
     </div>
