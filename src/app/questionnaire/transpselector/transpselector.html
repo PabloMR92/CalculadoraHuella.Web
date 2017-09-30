@@ -28,7 +28,7 @@
 </div>
 <div ng-show="$ctrl.optionselectedtransp" class="input-content">
     <div class="input-text">
-        <input type="number" ng-model="$ctrl.recorrido" min="0" required ng-change="$ctrl.compute()">
+        <input type="number" onkeypress="return event.charCode >= 48" ng-model="$ctrl.recorrido" min="0" required ng-change="$ctrl.compute()">
         <hr>
     </div>
     <div class="unit">
