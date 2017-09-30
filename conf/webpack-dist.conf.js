@@ -81,6 +81,12 @@ module.exports = {
     },
     entry: {
         app: `./${conf.path.src('index')}`,
-        vendor: Object.keys(pkg.dependencies)
+        vendor: Object.keys(pkg.dependencies).filter(function(item) {
+            return item != "express";
+        })
+    },
+    node: {
+        fs: 'empty',
+        net: 'empty'
     }
 };

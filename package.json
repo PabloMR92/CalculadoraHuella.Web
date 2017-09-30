@@ -9,6 +9,8 @@
         "bootstrap": "^4.0.0-alpha.6",
         "desandro-classie": "^1.0.1",
         "expose-loader": "^0.7.3",
+        "express": "^4.16.1",
+        "gulp": "gulpjs/gulp#4ed9a4a3275559c73a396eff7e1fde3824951ebb",
         "jquery": "^3.2.1",
         "ngstorage": "^0.3.11",
         "tether": "^1.4.0"
@@ -49,6 +51,7 @@
         "gulp-insert": "^0.5.0",
         "gulp-ng-annotate": "^2.0.0",
         "gulp-util": "^3.0.8",
+        "gulp-webserver": "^0.9.1",
         "html-loader": "^0.4.4",
         "html-webpack-plugin": "^2.28.0",
         "jasmine": "^2.5.3",
@@ -76,7 +79,8 @@
         "serve:dist": "gulp serve:dist",
         "test": "gulp test",
         "test:auto": "gulp test:auto",
-        "start": "gulp serve:dist"
+        "start": "gulp server",
+        "postinstall": "gulp default"
     },
     "eslintConfig": {
         "globals": {
@@ -91,5 +95,9 @@
         "extends": [
             "xo-space/esnext"
         ]
+    },
+    "engines": {
+        "node": "6",
+        "npm": "1.4.x"
     }
 }
