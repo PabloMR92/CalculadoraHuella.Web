@@ -274,6 +274,7 @@ intro {
 .question-container .first {
     flex: 1 auto;
     position: relative;
+    margin: 0;
     padding: 25px 0;
 }
 
@@ -619,4 +620,17 @@ body .popeye-modal-container .popeye-modal {
     color: rgb(239, 255, 159);
     font-weight: bold;
     text-decoration: underline rgb(239, 255, 159);
+}
+
+@media (max-width: 750px) {
+    .question-progress>div:not(:last-child) {
+        margin-right: 30px;
+    }
+    .question-progress>div:not(:last-child):before {
+        width: 30px;
+    }
+    nav .container-fluid {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }
