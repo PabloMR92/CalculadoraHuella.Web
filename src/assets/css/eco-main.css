@@ -362,6 +362,18 @@ intro {
     background: rgb(156, 128, 61);
 }
 
+.input-text input[type=number].error {
+    border-bottom: 2px solid #ff0033;
+}
+
+.input-text input[type=number].error:valid~hr,
+.input-text input[type=number].error:focus~hr {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    visibility: visible;
+    background: #ff0033;
+}
+
 .question-text {
     color: rgb(156, 128, 61);
     font-weight: 500;
@@ -543,6 +555,7 @@ avionselector .dropdown .btn {
     position: relative;
     min-height: 50px;
     border: 0;
+    border-radius: 0;
 }
 
 transpselector .dropdown .btn:before,
@@ -565,6 +578,11 @@ transpselector .dropdown .btn.selected:before,
 avionselector .dropdown .btn.selected:before {
     transform: scale(1);
     transition: all 0.2s linear;
+}
+
+transpselector .dropdown .btn.error,
+avionselector .dropdown .btn.error {
+    border-bottom: 2px solid red;
 }
 
 transpselector .dropdown .dropdown-menu li:not(.dropdown-divider),

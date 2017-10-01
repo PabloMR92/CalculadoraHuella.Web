@@ -96,6 +96,11 @@ export const transpselector = {
             compute();
         }
 
+        function selectNoneComb() {
+            vm.optionselectedcomb = null;
+            compute();
+        }
+
         function compute() {
             if (vm.optionselectedtransp) {
                 const factor = vm.optionselectedtransp.factor !== null ? vm.optionselectedtransp.factor : (vm.optionselectedcomb === null || angular.isUndefined(vm.optionselectedcomb) ? 0 : vm.optionselectedcomb.factor);
@@ -129,7 +134,8 @@ export const transpselector = {
             selectTransp: selectTransp,
             selectComb: selectComb,
             compute: compute,
-            selectNone: selectNone
+            selectNone: selectNone,
+            selectNoneComb: selectNoneComb
         });
     }
 };

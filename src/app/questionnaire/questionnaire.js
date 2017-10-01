@@ -9,6 +9,8 @@ export const questionnaire = {
 function questionnaireController($log, $localStorage, Popeye, $timeout) {
     // $localStorage.$reset();
     const vm = this;
+    vm.onlyNumbers = /^\d+$/;
+
     angular.extend(vm, {
         activeHome: false,
         activeTransp: false,
@@ -90,6 +92,14 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     }, {
         consumo: null
     }];
+
+    vm.highlightHabitantes = false;
+
+    vm.setHabitantes = () => {
+        if (vm.habitantes !== null && angular.isDefined(vm.habitantes)) {
+            vm.showErrorHabitantes = false;
+        }
+    };
 
     vm.addCommutingTransp = selected => {
         vm.transpCommuting.push({
@@ -195,6 +205,12 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     vm.calcular = () => {
         const invalidCommuting = getInvalid(vm.transpCommuting);
         let highlighted = false;
+
+        if (vm.habitantes === null || angular.isUndefined(vm.habitantes)) {
+            highlighted = true;
+            vm.showErrorHabitantes = true;
+            vm.highlightHabitantes = true;
+        }
 
         if (invalidCommuting.length > 0) {
             if (!highlighted) {
@@ -304,6 +320,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 resetHighlight(vm.transpActividades);
                 resetHighlight(vm.transpViajes);
                 resetHighlight(vm.transpVuelos);
+                // vm.highlightHabitantes = false;
             });
         }
     };

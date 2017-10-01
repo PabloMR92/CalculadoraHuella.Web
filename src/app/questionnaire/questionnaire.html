@@ -23,7 +23,8 @@
                     </div>
                     <div class="input-content">
                         <div class="input-text">
-                            <input type="number" onkeypress="return event.charCode >= 48" min="0" ng-model="$ctrl.habitantes" required>
+                            <input type="number" offset="250" scroll-if="$ctrl.highlightHabitantes" scrollable-watcher="#container" ng-class="{error: ($ctrl.showErrorHabitantes && !$ctrl.habitantes)}" only-number min="0" ng-model="$ctrl.habitantes" ng-change="$ctrl.setHabitantes()"
+                                required>
                             <hr>
                         </div>
                     </div>
@@ -42,7 +43,7 @@
                     <div class="row">
                         <div ng-repeat="bimestre in $ctrl.gasBimestres track by $index" class="input-content col-md-4">
                             <div class="input-text">
-                                <input type="number" onkeypress="return event.charCode >= 48" min="0" ng-model="bimestre.consumo" required>
+                                <input type="number" only-number min="0" ng-model="bimestre.consumo" required>
                                 <hr>
                             </div>
                             <div class="unit">
@@ -65,7 +66,7 @@
                     <div class="row">
                         <div ng-repeat="bimestre in $ctrl.aguaBimestres track by $index" class="input-content col-md-4">
                             <div class="input-text">
-                                <input type="number" onkeypress="return event.charCode >= 48" min="0" ng-model="bimestre.consumo" required>
+                                <input type="number" only-number min="0" ng-model="bimestre.consumo" required>
                                 <hr>
                             </div>
                             <div class="unit">
@@ -88,7 +89,7 @@
                     <div class="row">
                         <div ng-repeat="bimestre in $ctrl.electricidadBimestres track by $index" class="input-content col-md-4">
                             <div class="input-text">
-                                <input type="number" onkeypress="return event.charCode >= 48" min="0" ng-model="bimestre.consumo" required>
+                                <input type="number" only-number min="0" ng-model="bimestre.consumo" required>
                                 <hr>
                             </div>
                             <div class="unit">
@@ -145,7 +146,7 @@
                     </div>
                     <div class="input-content">
                         <div class="input-text">
-                            <input type="number" onkeypress="return event.charCode >= 48" min="0" required ng-model="$ctrl.hospedaje">
+                            <input type="number" only-number min="0" required ng-model="$ctrl.hospedaje">
                             <hr>
                         </div>
                         <div class="unit">
@@ -166,7 +167,7 @@
                     </div>
                     <div class="input-content">
                         <div class="input-text">
-                            <input type="number" onkeypress="return event.charCode >= 48" min="0" ng-model="$ctrl.residuos" required>
+                            <input type="number" only-number min="0" ng-model="$ctrl.residuos" required>
                             <hr>
                         </div>
                         <div class="unit">

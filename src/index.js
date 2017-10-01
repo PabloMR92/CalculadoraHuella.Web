@@ -56,6 +56,7 @@ import {
 
 import sticky from './app/directive/sticky';
 import scrollIf from './app/directive/scrollif';
+import onlyNumber from './app/directive/onlynumber';
 
 import nganimate from 'angular-animate';
 
@@ -71,4 +72,5 @@ angular
     .component('navtop', navtop)
     .controller('resultController', resultController)
     .directive('sticky', sticky)
+    .directive('onlyNumber', onlyNumber)
     .directive('scrollIf', scrollIf);

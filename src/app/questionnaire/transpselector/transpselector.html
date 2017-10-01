@@ -16,19 +16,19 @@
     </ul>
 </div>
 <div class="dropdown" ng-show="$ctrl.optionselectedtransp.combOptions">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselectedcomb}">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselectedcomb, 'error': ($ctrl.data.showError && !$ctrl.data.valido && !$ctrl.optionselectedcomb)}">
             {{ $ctrl.optionselectedcomb ? $ctrl.optionselectedcomb.name : 'Elegir combustible'}}
             <span class="caret"></span>
         </button>
     <ul class="dropdown-menu">
-        <li ng-click="$ctrl.optionselectedcomb = null">Ninguno</li>
+        <li ng-click="$ctrl.selectNoneComb()">Ninguno</li>
         <li class="dropdown-divider"></li>
         <li ng-repeat="option in $ctrl.optionselectedtransp.combOptions" ng-click="$ctrl.selectComb(option)">{{ option.name }}</li>
     </ul>
 </div>
 <div ng-show="$ctrl.optionselectedtransp" class="input-content">
     <div class="input-text">
-        <input type="number" onkeypress="return event.charCode >= 48" ng-model="$ctrl.recorrido" min="0" required ng-change="$ctrl.compute()">
+        <input ng-class="{error: ($ctrl.data.showError && !$ctrl.data.valido && !$ctrl.recorrido)}" only-number type="number" ng-model="$ctrl.recorrido" min="0" required ng-change="$ctrl.compute()">
         <hr>
     </div>
     <div class="unit">
@@ -37,4 +37,3 @@
 </div>
 <i ng-show="$ctrl.data.showOther && $ctrl.optionselectedtransp" ng-click="$ctrl.addOther({selected: $ctrl.data})" class="arrow-icon-plus-circle" aria-hidden="true"></i>
 <i ng-show="!$ctrl.data.showOther" ng-click="$ctrl.remove({toRemove: $ctrl.data})" class="arrow-icon-minus-circle" aria-hidden="true"></i>
-<span ng-show="$ctrl.data.showError">asdasd{{$ctrl.data.showError}}</span>

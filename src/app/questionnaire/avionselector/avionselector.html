@@ -11,7 +11,7 @@
 </div>
 <div ng-show="$ctrl.optionselectedtransp" class="input-content">
     <div class="input-text">
-        <input type="number" ng-model="$ctrl.escalas" min="0" required ng-change="$ctrl.compute()">
+        <input type="number" ng-class="{'error': $ctrl.data.showError && !$ctrl.data.valido && !$ctrl.escalas}" only-number ng-model="$ctrl.escalas" min="0" required ng-change="$ctrl.compute()">
         <hr>
     </div>
     <div class="unit">
@@ -20,7 +20,7 @@
 </div>
 <div ng-show="$ctrl.optionselectedtransp" class="input-content">
     <div class="input-text">
-        <input type="number" ng-model="$ctrl.recorrido" min="0" required ng-change="$ctrl.compute()">
+        <input type="number" ng-class="{'error': $ctrl.data.showError && !$ctrl.data.valido && !$ctrl.recorrido}" only-number ng-model="$ctrl.recorrido" min="0" required ng-change="$ctrl.compute()">
         <hr>
     </div>
     <div class="unit">

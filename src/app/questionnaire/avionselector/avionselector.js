@@ -23,7 +23,9 @@ export const avionselector = {
         function selectNone() {
             vm.optionselectedtransp = null;
             vm.recorrido = null;
+            vm.escalas = null;
             compute();
+            vm.data.valido = true;
         }
 
         function selectTransp(option) {
@@ -36,6 +38,12 @@ export const avionselector = {
                 vm.data.consumo = (vm.optionselectedtransp.factor * vm.recorrido) + (vm.escalas * vm.optionselectedtransp.factorEscalas);
             } else {
                 vm.data.consumo = 0;
+            }
+
+            vm.data.valido = (vm.optionselectedtransp !== null && angular.isDefined(vm.optionselectedtransp)) && (vm.recorrido !== null && angular.isDefined(vm.recorrido)) && (vm.escalas !== null && angular.isDefined(vm.escalas));
+
+            if (vm.data.valido) {
+                vm.data.showError = false;
             }
 
             vm.data.obj = {
