@@ -41,15 +41,15 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             vm.activeTransp = false;
             vm.activeResid = false;
         }
-        if (inviewpartTransp) {
-            vm.activeHome = false;
-            vm.activeTransp = true;
-            vm.activeResid = false;
-        }
         if (inviewpartResid) {
             vm.activeHome = false;
             vm.activeTransp = false;
             vm.activeResid = true;
+        }
+        if (inviewpartTransp) {
+            vm.activeHome = false;
+            vm.activeTransp = true;
+            vm.activeResid = false;
         }
     }
 

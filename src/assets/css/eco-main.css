@@ -326,7 +326,7 @@ intro {
     outline: none;
     cursor: text;
     color: rgb(93, 93, 93);
-    font-size: x-large;
+    font-size: 1.2em;
     text-align: center;
     background-color: rgb(239, 239, 239);
 }
@@ -392,7 +392,7 @@ intro {
 }
 
 .unit {
-    font-size: large;
+    font-size: 1.2em;
     font-weight: 400;
     color: rgb(129, 126, 125);
     margin-top: 3px;
@@ -551,7 +551,7 @@ avionselector .dropdown .btn {
     height: auto;
     background-color: transparent;
     color: rgb(93, 93, 93);
-    font-size: x-large;
+    font-size: 1.2em;
     position: relative;
     min-height: 50px;
     border: 0;
@@ -588,6 +588,24 @@ avionselector .dropdown .btn.error {
 transpselector .dropdown .dropdown-menu li:not(.dropdown-divider),
 avionselector .dropdown .dropdown-menu li:not(.dropdown-divider) {
     padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+transpselector .dropdown .dropdown-menu li:not(.transp):not(.dropdown-divider),
+avionselector .dropdown .dropdown-menu li:not(.transp):not(.dropdown-divider) {
+    margin-left: 27px;
+}
+
+transpselector .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
+avionselector .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
+transpselector .dropdown .dropdown-menu li.selected-option,
+avionselector .dropdown .dropdown-menu li.selected-option {
+    color: rgb(141, 166, 46);
+}
+
+transpselector .dropdown .dropdown-menu li:first-child,
+avionselector .dropdown .dropdown-menu li:first-child {
     text-align: center;
 }
 
@@ -599,7 +617,7 @@ avionselector .btn-primary:active,
 avionselector .show>.btn-primary.dropdown-toggle {
     background-color: transparent;
     font-weight: 700;
-    color: rgb(93, 93, 93);
+    color: rgb(141, 166, 46);
     border-color: transparent;
 }
 

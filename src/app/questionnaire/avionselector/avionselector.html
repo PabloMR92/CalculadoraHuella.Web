@@ -6,7 +6,7 @@
     <ul class="dropdown-menu">
         <li ng-click="$ctrl.selectNone()">Ninguno</li>
         <li class="dropdown-divider"></li>
-        <li ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">{{ option.name }}</li>
+        <li ng-class="{'selected-option': option === $ctrl.optionselectedtransp}" ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">{{ option.name }}</li>
     </ul>
 </div>
 <div ng-show="$ctrl.optionselectedtransp" class="input-content">

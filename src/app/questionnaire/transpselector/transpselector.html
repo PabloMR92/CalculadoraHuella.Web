@@ -9,7 +9,7 @@
     <ul class="dropdown-menu">
         <li ng-click="$ctrl.selectNone()">Ninguno</li>
         <li class="dropdown-divider"></li>
-        <li ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">
+        <li class="transp" ng-class="{'selected-option': option === $ctrl.optionselectedtransp}" ng-repeat="option in $ctrl.traspOptions" ng-click="$ctrl.selectTransp(option)">
             <span>
                 <i class="{{option.icon}}"></i>
             </span> {{ option.name }}</li>
@@ -23,7 +23,7 @@
     <ul class="dropdown-menu">
         <li ng-click="$ctrl.selectNoneComb()">Ninguno</li>
         <li class="dropdown-divider"></li>
-        <li ng-repeat="option in $ctrl.optionselectedtransp.combOptions" ng-click="$ctrl.selectComb(option)">{{ option.name }}</li>
+        <li ng-class="{'selected-option': option === $ctrl.optionselectedcomb}" ng-repeat="option in $ctrl.optionselectedtransp.combOptions" ng-click="$ctrl.selectComb(option)">{{ option.name }}</li>
     </ul>
 </div>
 <div ng-show="$ctrl.optionselectedtransp" class="input-content">

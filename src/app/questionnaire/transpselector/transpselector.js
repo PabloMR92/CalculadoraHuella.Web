@@ -43,7 +43,7 @@ export const transpselector = {
                         factor: 124
                     }
                 ],
-                icon: 'icon-eco_colectivo'
+                icon: 'icon-eco_camioneta'
             },
             {
                 name: 'Colectivo o micro',
