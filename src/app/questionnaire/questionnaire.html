@@ -37,7 +37,8 @@
                     </div>
                     <div class="question-text">
                         Consumo bimestral de electricidad
-                        <div class="subtitle">¿Dónde encuentro el dato en mi factura? <a href="../../assets/img/fac_edenor.jpg" target="blank">Edenor</a> <a href="../../assets/img/fac_edesur.jpg" target="blank"Edesur</a></div>
+                        <div class="subtitle">¿Dónde encuentro el dato en mi factura? <a href="../../assets/img/fac_edenor.jpg" target="blank">Edenor</a>
+                            <a href="../../assets/img/fac_edesur.jpg" target="blank" Edesur</a></div>
                         <div class="text">Si no tiene las facturas a mano, haga <a target="_blank" href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">click aqui</a> para calcular el consumo</div>
                     </div>
                     <div class="row">
@@ -60,7 +61,8 @@
                     </div>
                     <div class="question-text">
                         Consumo bimestral de gas
-                        <div class="subtitle">¿Dónde encuentro el dato en mi factura? <a href="../../assets/img/fac_metrogas.jpg" target="blank"Metrogas</a></div>
+                        <div class="subtitle">¿Dónde encuentro el dato en mi factura?
+                            <a href="../../assets/img/fac_metrogas.jpg" target="blank" Metrogas</a></div>
                         <div class="text">Si no tiene las facturas a mano, haga <a target="_blank" href="https://www.metrogas.com.ar/hogares/Paginas/entende-tu-factura.aspx">click aqui</a> para calcular el consumo</div>
                     </div>
                     <div class="row">
@@ -110,13 +112,24 @@
                         Cantidad de residuos generados
                         <div class="subtitle">Indique la cantidad de bolsa generadas por día (en promedio)</div>
                     </div>
-                    <div class="input-content">
-                        <div class="input-text">
-                            <input type="number" only-number min="0" ng-model="$ctrl.residuos" required>
-                            <hr>
+                    <div class="bolsa-container">
+                        <div class="input-content">
+                            <div class="input-text">
+                                <input type="number" only-number min="0" ng-model="$ctrl.residuos" required>
+                                <hr>
+                            </div>
+                            <div class="unit">
+                                (bolsas)
+                            </div>
                         </div>
-                        <div class="unit">
-                            (bolsas)
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselectedbolsa}">
+                                {{ $ctrl.optionselectedbolsa ? $ctrl.optionselectedbolsa.name : 'Elegir peso'}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-class="{'selected-option': option === $ctrl.optionselectedbolsa}" ng-repeat="option in $ctrl.bolsasOptions" ng-click="$ctrl.selectBolsa(option)">{{ option.name }}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
