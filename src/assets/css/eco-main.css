@@ -488,7 +488,8 @@ a[ui-sref]:hover {
 }
 
 transpselector,
-avionselector {
+avionselector,
+.bolsa-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -512,7 +513,8 @@ avionselector>div {
         width: auto;
     }
     transpselector .dropdown,
-    avionselector .dropdown {
+    avionselector .dropdown,
+    .bolsa-container .dropdown {
         min-height: 50px;
         margin-left: 30px;
     }
@@ -520,7 +522,8 @@ avionselector>div {
 
 @media (max-width: 750px) {
     transpselector .dropdown,
-    avionselector .dropdown {
+    avionselector .dropdown,
+    .bolsa-container .dropdown {
         min-height: 65px;
         display: flex;
         justify-content: center;
@@ -528,7 +531,8 @@ avionselector>div {
 }
 
 transpselector .dropdown,
-avionselector .dropdown {
+avionselector .dropdown,
+.bolsa-container .dropdown {
     height: 50px;
 }
 
@@ -548,7 +552,8 @@ avionselector .dropdown {
 }
 
 transpselector .dropdown .btn,
-avionselector .dropdown .btn {
+avionselector .dropdown .btn,
+.bolsa-container .dropdown .btn {
     height: auto;
     background-color: transparent;
     color: rgb(93, 93, 93);
@@ -560,7 +565,8 @@ avionselector .dropdown .btn {
 }
 
 transpselector .dropdown .btn:before,
-avionselector .dropdown .btn:before {
+avionselector .dropdown .btn:before,
+.bolsa-container .dropdown .btn:before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -576,18 +582,21 @@ avionselector .dropdown .btn:before {
 }
 
 transpselector .dropdown .btn.selected:before,
-avionselector .dropdown .btn.selected:before {
+avionselector .dropdown .btn.selected:before,
+.bolsa-container .dropdown .btn.selected:before {
     transform: scale(1);
     transition: all 0.2s linear;
 }
 
 transpselector .dropdown .btn.error,
-avionselector .dropdown .btn.error {
+avionselector .dropdown .btn.error,
+.bolsa-container .dropdown .btn.error {
     border-bottom: 2px solid red;
 }
 
 transpselector .dropdown .dropdown-menu li:not(.dropdown-divider),
-avionselector .dropdown .dropdown-menu li:not(.dropdown-divider) {
+avionselector .dropdown .dropdown-menu li:not(.dropdown-divider),
+.bolsa-container .dropdown .dropdown-menu li:not(.dropdown-divider) {
     padding: 5px;
     cursor: pointer;
     transition: all 0.3s linear;
@@ -600,19 +609,25 @@ avionselector .dropdown .dropdown-menu li:not(.transp):not(.dropdown-divider) {
 
 transpselector .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 avionselector .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
+.bolsa-container .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 transpselector .dropdown .dropdown-menu li.selected-option,
-avionselector .dropdown .dropdown-menu li.selected-option {
+avionselector .dropdown .dropdown-menu li.selected-option,
+.bolsa-container .dropdown .dropdown-menu li.selected-option {
     color: rgb(141, 166, 46);
 }
 
 transpselector .dropdown .dropdown-menu li:first-child,
-avionselector .dropdown .dropdown-menu li:first-child {
+avionselector .dropdown .dropdown-menu li:first-child,
+.bolsa-container .dropdown .dropdown-menu li {
     text-align: center;
 }
 
 transpselector .btn-primary.active,
 transpselector .btn-primary:active,
 transpselector .show>.btn-primary.dropdown-toggle,
+.bolsa-container .btn-primary.active,
+.bolsa-container .btn-primary:active,
+.bolsa-container .show>.btn-primary.dropdown-toggle,
 avionselector .btn-primary.active,
 avionselector .btn-primary:active,
 avionselector .show>.btn-primary.dropdown-toggle {
@@ -624,6 +639,8 @@ avionselector .show>.btn-primary.dropdown-toggle {
 
 transpselector .btn-primary.focus,
 transpselector .btn-primary:focus,
+.bolsa-container .btn-primary.focus,
+.bolsa-container .btn-primary:focus,
 avionselector .btn-primary.focus,
 avionselector .btn-primary:focus {
     box-shadow: none;

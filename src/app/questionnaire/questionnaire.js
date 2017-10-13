@@ -20,6 +20,23 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     let inviewpartTransp = false;
     let inviewpartResid = false;
 
+    vm.bolsasOptions = [{
+            name: '3kg (Chica)',
+            factor: 3
+        },
+        {
+            name: '6kg (Mediana)',
+            factor: 6
+        }, {
+            name: '10kg (Grande)',
+            factor: 10
+        }
+    ];
+
+    vm.selectBolsa = option => {
+        vm.optionselectedbolsa = option;
+    };
+
     vm.homeInView = (index, inview) => {
         inviewpartHome = inview;
         setInviewp();
@@ -275,7 +292,10 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             const hospedajeFactor = vm.hospedaje ? vm.hospedaje : 0;
             const totalHospedaje = hospedajeFactor * 12;
 
-            const residuosFactor = vm.residuos ? vm.residuos : 0;
+            let residuosFactor = vm.residuos ? vm.residuos : 0;
+            if (residuosFactor !== 0) {
+                residuosFactor = vm.optionselectedbolsa ? vm.optionselectedbolsa.factor * residuosFactor : 0;
+            }
             const totalResiduos = habitantes === 0 ? 0 : (residuosFactor / habitantes) * 6.671 * 365;
 
             const totalElectricidad = habitantes === 0 ? 0 : vm.electricidadBimestres.reduce((valorAnterior, valorActual) => {
@@ -312,7 +332,8 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 residuos: vm.residuos,
                 electricidadBimestres: vm.electricidadBimestres,
                 gasBimestres: vm.gasBimestres,
-                aguaBimestres: vm.aguaBimestres
+                aguaBimestres: vm.aguaBimestres,
+                residuosBolsa: vm.optionselectedbolsa
             };
         } else {
             $timeout(() => {
@@ -346,6 +367,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             vm.electricidadBimestres = previousResult.electricidadBimestres;
             vm.gasBimestres = previousResult.gasBimestres;
             vm.aguaBimestres = previousResult.aguaBimestres;
+            vm.optionselectedbolsa = previousResult.residuosBolsa;
 
             const filterTranspCommuting = previousResult.transpCommuting.filter(item => {
                 return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
