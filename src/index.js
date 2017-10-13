@@ -17,12 +17,12 @@ import './assets/css/eco.css';
 import './assets/css/eco-main.css';
 
 import './assets/js/dropdownfix';
+import './assets/js/angular-locale_es-ar';
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'ngstorage';
 import 'angular-popeye';
-import 'angular-i18n/angular-locale_es-ar';
 
 import 'angular-popeye/release/popeye.css';
 
