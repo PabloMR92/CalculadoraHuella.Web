@@ -266,6 +266,7 @@ intro {
     margin: 0;
     width: 100%;
     height: 100%;
+    position: relative;
     align-items: center;
     /* align-self: stretch; */
     /* justify-content: center; */
@@ -669,4 +670,13 @@ body .popeye-modal-container .popeye-modal {
         justify-content: center;
         flex-wrap: wrap;
     }
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
