@@ -723,6 +723,12 @@ body .popeye-modal-container .popeye-modal {
 }
 
 @media (max-width: 750px) {
+    .navbar-brand img{
+        width: 200px;
+    }
+    .calcular-huella-header{
+        display: none;
+    }
     .question-progress>div:not(:last-child) {
         margin-right: 30px;
     }
@@ -732,6 +738,32 @@ body .popeye-modal-container .popeye-modal {
     nav .container-fluid {
         justify-content: center;
         flex-wrap: wrap;
+    }
+    .question-progress {
+        height: 80px;
+    }
+    .question-progress i {
+        font-size: 25px;
+    }
+    .question-progress>div.active i {
+        font-size: 35px;
+    }
+    .question-text {
+        font-size: medium;
+    }
+    .btn-calc {
+        padding: 10px 35px;
+        font-size: 15px;
+    }
+    .unit {
+        font-size: 0.9em;
+    }
+    transpselector .dropdown .btn, avionselector .dropdown .btn, .bolsa-container .dropdown .btn {
+        font-size: 0.9em;
+    }
+    .py-4 {
+        padding-top: 0.7rem!important;
+        padding-bottom: 0.7rem!important;
     }
 }
 
