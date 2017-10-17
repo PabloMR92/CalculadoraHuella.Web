@@ -391,6 +391,52 @@ intro {
     font-size: 13px;
     color: #666;
 }
+.modal-header {
+    display: block !important;
+}
+.question-text .modal-header i {
+    color:  rgb(141, 166, 46);
+    font-size: xx-large;
+    float: left;
+}
+.question-text .modal-header .title {
+    font-weight: 500;
+    font-size: larger;
+    float: left;
+}
+.question-text .modal-header .close {
+    text-decoration: none !important;
+    font-size: x-large !important;
+}
+.question-text .modal-body .subtitle,
+.question-text .modal-body .text {
+    text-align: left;
+}
+.question-text .modal-body .text {
+    margin-bottom: 20px;
+}
+
+.question-text button {
+    border: 0px;
+    background-color: transparent;
+    color: #666;
+    font-size: 13px;
+    padding: 0px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 500;
+}
+.question-text  button:hover {
+    color:  rgb(141, 166, 46);
+}
+.question-text  button:active {
+    outline: none;
+    border: none;
+}
+
+.question-text button:focus {
+    outline:0;
+}
 
 .unit {
     font-size: 1.2em;
