@@ -37,7 +37,7 @@
                     </div>
                     <div class="question-text">
                         Consumo bimestral de electricidad
-                        <div class="subtitle"><button data-toggle="modal" data-target="#melectriciddad">¿Como puedo obtener esta información?</button><br><button data-toggle="modal" data-target="#melectriciddad">Consejos de ahorro</button></div>
+                        <div class="subtitle"><button data-toggle="modal" data-target="#melectriciddad">¿Como puedo obtener esta información?</button></div>
 
                         <div id="melectriciddad" class="modal fade" role="dialog">
                           <div class="modal-dialog">
@@ -51,20 +51,18 @@
                                   <div class="text">
                                       Te mostamos donde podes encontrar esta información en las facturas de <a href="../../assets/img/fac_edenor.jpg" target="blank">Edenor</a> y <a href="../../assets/img/fac_edesur.jpg" target="blank">Edesur</a>.
                                   </div>
-                                  <div class="subtitle">Simulador de consumo</div>
-                                  <div class="text">
-                                      Si no conoces tu consumo eléctrico, se recomienda colocar el valor de consumo como suma de los consumos por artefacto eléctrico que tenga en el hogar basándose en el <a target="_blank" href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">simulador de consumo</a> de Edenor.
-                                  </div>
                                   <div class="subtitle">Consumos individuales por aparato</div>
                                   <div class="text">
-                                      Puede ver los consumos individuales por aparato haciendo click <a href="http://www.edenor.com.ar/cms/SP/CLI/HOG/USO_consumo.html" target="_blank">aquí</a>
-                                      y consejos de ahorro  <a href="http://www.edenor.com.ar/cms/SP/CLI/HOG/USO.html" target="_blank">aquí</a>.
+                                      Si no conoces tu consumo eléctrico, se recomienda colocar el valor de consumo como suma de los consumos por artefacto eléctrico que tenga en el hogar.  Puede ver los consumos individuales por aparato haciendo click <a href="http://www.edenor.com.ar/cms/SP/CLI/HOG/USO_consumo.html" target="_blank">aquí</a>.
                                   </div>
+                                  <div class="subtitle">Simulador de consumo</div>
+                                  <div class="text">
+                                    También puedes calcular tus consumos  basándote en el  <a target="_blank" href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">simulador de consumo</a> de Edenor                                  </div>
+                              </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
 
                       <div class="row">
                         <div ng-repeat="bimestre in $ctrl.electricidadBimestres track by $index" class="input-content col-md-4">
@@ -86,7 +84,7 @@
                     </div>
                     <div class="question-text">
                         Consumo bimestral de gas
-                        <div class="subtitle"><button data-toggle="modal" data-target="#mgas">¿Como puedo obtener esta información?</button><br><button data-toggle="modal" data-target="#mgas">Consejos de ahorro</button></div>
+                        <div class="subtitle"><button data-toggle="modal" data-target="#mgas">¿Como puedo obtener esta información?</button></div>
                       <div id="mgas" class="modal fade" role="dialog">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -95,23 +93,21 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
                           <div class="modal-body" style="text-aling: left;">
-                              <div class="subtitle">¿Dónde encuentro el dato en mi factura?</div>
+                              <div class="subtitle">Consumos individuales por aparato</div>
                               <div class="text">
                                   Te mostamos donde podes encontrar esta información en las factura de <a href="../../assets/img/fac_metrogas.jpg" target="blank">Metrogas</a>.<br>
                                   Alternativamente, puedes ver el detalle de la factura <a target="_blank" href="https://www.metrogas.com.ar/hogares/Paginas/entende-tu-factura.aspx">aqui</a>.
                               </div>
+                              <div class="subtitle">Consumos individuales por aparato</div>
+                              <div class="text">
+                                  Si no conoces tu consumo eléctrico, se recomienda colocar el valor de consumo como suma de los consumos por artefacto a gas que tenga en el hogar.  Puede ver los consumos individuales por aparato haciendo click <a href="https://www.enargas.gob.ar/secciones/eficiencia-energetica/consumo-artefactos.php" target="_blank">aquí</a>.
+                              </div>
                               <div class="subtitle">Simulador de consumo</div>
                               <div class="text">
-                                Si no conoce su consumo de gas, se recomienda colocar el valor de consumo como suma de los consumos por artefacto térmico que tenga en el hogar basándose en el <a href="http://www.enargas.gov.ar/secciones/eficiencia-energetica/simulador-consumos/simulador-consumos.php" target="_blank">simulador de consumo</a> de Enargas.
-                              </div>
-                              <div class="subtitle">Consumos individuales por aparato y consejos de ahorro</div>
-                              <div class="text">
-                                Puede ver los consumos individuales por aparato haciendo click <a href="https://www.enargas.gob.ar/secciones/eficiencia-energetica/consumo-artefactos.php" target="_blank">aquí</a>.
-                                Y consejos de ahorro <a href="https://www.metrogas.com.ar/Paginas/ahorra-gas.aspx" target="_blank">aquí</a>.
-                              </div>
+                                También puedes calcular tus consumos  basándote en el  <a target="_blank" href="http://www.enargas.gov.ar/secciones/eficiencia-energetica/simulador-consumos/simulador-consumos.php">simulador de consumo</a> de Enargas</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
                     </div>
                     </div>
                     <div class="row">
@@ -134,7 +130,7 @@
                     </div>
                     <div class="question-text">
                         Consumo bimestral de agua
-                        <div class="subtitle"><button data-toggle="modal" data-target="#magua">¿Como puedo obtener esta información?</button><br><button data-toggle="modal" data-target="#melectriciddad">Consejos de ahorro</button></div>
+                        <div class="subtitle"><button data-toggle="modal" data-target="#magua">¿Como puedo obtener esta información?</button></div>
                       <div id="magua" class="modal fade" role="dialog">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -150,13 +146,7 @@
                               </div>
                               <div class="subtitle">Simulador de consumo</div>
                               <div class="text">
-                                Si no conoce su consumo de agua, se recomienda colocar el valor de consumo como suma de los consumos por tipo de uso que tenga en el hogar basándose en el <a href="http://www.aguascordobesas.com.ar/testconsumo/test.html" target="_blank">simulador de consumo</a> de Aguas Cordobesas.
-                              </div>
-                              <div class="subtitle">Consejos de ahorro</div>
-                              <div class="text">
-                                Puede informarce sobre los distintos consumos y consejos sobre pérdidas y ahorro haciendo click <a href="http://www.aysa.com.ar/Media/archivos/562/CAU-8%20-%20Consejos.pdf" target="_blank">aquí</a>.<br>
-                                También se puede ver una aplicación para toma de conciencia haciendo click <a href="http://www.aysa.com.ar/index.php?id_seccion=1178" target="_blank">aquí</a>.
-                              </div>
+                                También puedes calcular tus consumos  basándote en el  <a target="_blank" href="http://www.aguascordobesas.com.ar/testconsumo/test.html">simulador de consumo</a> de Enargas</div>
                           </div>
                         </div>
                       </div>
@@ -186,7 +176,6 @@
                     <div class="question-text">
                         Cantidad de residuos generados
                         <div class="subtitle">Indique la cantidad de bolsa generadas por día (en promedio)</div>
-                        <div class="subtitle"><button data-toggle="modal" data-target="#cresiduos">Consejos útiles</button></div>
                       <div id="cresiduos" class="modal fade" role="dialog">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -258,7 +247,7 @@
                     </div>
                     <div class="question-text">
                         Viajes en avion realizados
-                        <div class="subtitle">Tipos de vuelos, escalas y distancias realizados</div>
+                        <div class="subtitle">Tipos de vuelos, escalas y distancias recorridas</div>
                         <div class="text">Para calcular distancia entre del vuelo haga click <a target="_blank" href="http://www.distanciasentreciudades.com">aqui.</a></div>
                     </div>
                     <avionselector data="vuelo" add-other="$ctrl.addViajeVuelo(selected)" remove="$ctrl.removeViajeVuelo(toRemove)" ng-repeat="vuelo in $ctrl.transpVuelos" scroll-if="vuelo.highlight" scrollable-watcher="#container"></avionselector>
