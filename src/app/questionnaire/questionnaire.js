@@ -274,11 +274,11 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             const habitantes = vm.habitantes ? vm.habitantes : 0;
 
             const totalCommuting = vm.transpCommuting.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
+                return valorAnterior + (valorActual.consumo ? valorActual.consumo * 230 : 0);
             }, 0);
 
             const totalActividades = vm.transpActividades.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (valorActual.consumo ? valorActual.consumo : 0);
+                return valorAnterior + (valorActual.consumo ? valorActual.consumo * 230 : 0);
             }, 0);
 
             const totalViajes = vm.transpViajes.reduce((valorAnterior, valorActual) => {
@@ -296,7 +296,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             if (residuosFactor !== 0) {
                 residuosFactor = vm.optionselectedbolsa ? vm.optionselectedbolsa.factor * residuosFactor : 0;
             }
-            const totalResiduos = habitantes === 0 ? 0 : (residuosFactor / habitantes) * 6.671 * 365;
+            const totalResiduos = habitantes === 0 ? 0 : (residuosFactor / habitantes) * 1.668 * 360;
 
             const totalElectricidad = habitantes === 0 ? 0 : vm.electricidadBimestres.reduce((valorAnterior, valorActual) => {
                 return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
@@ -317,7 +317,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 controller: 'resultController as ctrl',
                 resolve: {
                     result: function() {
-                        return (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua);
+                        return (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua) / 1000;
                     }
                 }
             });

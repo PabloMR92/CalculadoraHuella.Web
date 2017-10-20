@@ -104,7 +104,7 @@ export const transpselector = {
         function compute() {
             if (vm.optionselectedtransp) {
                 const factor = vm.optionselectedtransp.factor !== null ? vm.optionselectedtransp.factor : (vm.optionselectedcomb === null || angular.isUndefined(vm.optionselectedcomb) ? 0 : vm.optionselectedcomb.factor);
-                vm.data.consumo = factor * vm.recorrido;
+                vm.data.consumo = (factor / 1000) * vm.recorrido;
             } else {
                 vm.data.consumo = 0;
             }
