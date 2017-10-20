@@ -303,11 +303,11 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             }, 0);
 
             const totalGas = habitantes === 0 ? 0 : vm.gasBimestres.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
+                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 1.973) / habitantes);
             }, 0);
 
             const totalAgua = habitantes === 0 ? 0 : vm.aguaBimestres.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
+                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.104) / habitantes);
             }, 0);
 
             // $log.info('Consumo total:' + (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua));
