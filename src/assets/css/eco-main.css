@@ -416,7 +416,8 @@ intro {
     margin-bottom: 20px;
 }
 
-.question-text button {
+.question-text button,
+.question-text a {
     border: 0px;
     background-color: transparent;
     color: #666;
@@ -426,7 +427,8 @@ intro {
     text-decoration: underline;
     font-weight: 500;
 }
-.question-text  button:hover {
+.question-text  button:hover,
+.question-text  a:hover {
     color:  rgb(141, 166, 46);
 }
 .question-text  button:active {
@@ -698,7 +700,7 @@ body .popeye-modal-container {
 }
 
 body .popeye-modal-container .popeye-modal {
-    width: 40%;
+    max-width: 560px;
     background: rgb(141, 166, 46);
     color: white;
     padding: 1em 1.5em 1.5em 1.5em;
@@ -720,6 +722,63 @@ body .popeye-modal-container .popeye-modal {
     color: rgb(239, 255, 159);
     font-weight: bold;
     text-decoration: underline rgb(239, 255, 159);
+}
+.popeye-modal ul{
+    margin:10px auto 20px;
+    max-width:100%;
+}
+.popeye-modal ul li{
+     font-size: 14px;
+}
+.popeye-modal ul li a{
+    color: #ffffff;
+}
+@media (max-width: 750px) {
+    .navbar-brand img{
+        width: 200px;
+    }
+    .calcular-huella-header{
+        display: none;
+    }
+    .question-progress>div:not(:last-child) {
+        margin-right: 30px;
+    }
+    .question-progress>div:not(:last-child):before {
+        width: 30px;
+    }
+    nav .container-fluid {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .question-progress {
+        height: 80px;
+    }
+    .question-progress i {
+        font-size: 25px;
+    }
+    .question-progress>div.active i {
+        font-size: 35px;
+    }
+    .question-text {
+        font-size: medium;
+    }
+    .btn-calc {
+        padding: 10px 35px;
+        font-size: 15px;
+    }
+    .unit {
+        font-size: 0.9em;
+    }
+    transpselector .dropdown .btn, avionselector .dropdown .btn, .bolsa-container .dropdown .btn {
+        font-size: 0.9em;
+    }
+    .py-4 {
+        padding-top: 0.7rem!important;
+        padding-bottom: 0.7rem!important;
+    }
+    body .popeye-modal-container .popeye-modal {
+        width: 100%;
+    }
 }
 
 @media (max-width: 750px) {
@@ -764,6 +823,9 @@ body .popeye-modal-container .popeye-modal {
     .py-4 {
         padding-top: 0.7rem!important;
         padding-bottom: 0.7rem!important;
+    }
+    body .popeye-modal-container .popeye-modal {
+        width: 100%;
     }
 }
 

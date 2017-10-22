@@ -38,6 +38,7 @@
                     <div class="question-text">
                         Consumo bimestral de electricidad
                         <div class="subtitle"><button data-toggle="modal" data-target="#melectriciddad">¿Como puedo obtener esta información?</button></div>
+                        <div class="subtitle"><a href="http://www.edenor.com.ar/cms/SP/CLI/HOG/USO.html" target="blank">Consejos de ahorro</a></div>
 
                         <div id="melectriciddad" class="modal fade" role="dialog">
                           <div class="modal-dialog">
@@ -85,6 +86,7 @@
                     <div class="question-text">
                         Consumo bimestral de gas
                         <div class="subtitle"><button data-toggle="modal" data-target="#mgas">¿Como puedo obtener esta información?</button></div>
+                        <div class="subtitle"><a href="https://www.metrogas.com.ar/Paginas/ahorra-gas.aspx" target="blank">Consejos de ahorro</a></div>
                       <div id="mgas" class="modal fade" role="dialog">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -131,7 +133,9 @@
                     <div class="question-text">
                         Consumo bimestral de agua
                         <div class="subtitle"><button data-toggle="modal" data-target="#magua">¿Como puedo obtener esta información?</button></div>
-                      <div id="magua" class="modal fade" role="dialog">
+                        <div class="subtitle"><button data-toggle="modal" data-target="#cagua">Consejos de ahorro</button></div>
+
+                  <div id="magua" class="modal fade" role="dialog">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -152,7 +156,27 @@
                       </div>
                     </div>
 
+                    <div id="cagua" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <i class="icon-eco_agua_caliente"></i><div class="title">Consejos de ahorro</div>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body" style="text-aling: left;">
+                            <div class="subtitle">Consumos, pérdidas y ahorro</div>
+                            <div class="text">
+                              Enterate los distintos consumos y consejos sobre pérdidas y ahorros haciendo click <a href="http://www.aysa.com.ar/Media/archivos/562/CAU-8%20-%20Consejos.pdf" target="_blank">aquí</a>.
+                            </div>
+                            <div class="subtitle">¿Como tomar conciencia?</div>
+                            <div class="text">
+                              También se puede ver una aplicación para toma de conciencia haciendo click <a href="http://www.aysa.com.ar/index.php?id_seccion=1178" target="_blank">aquí</a>.
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                    </div>
+                </div>
                     <div class="row">
                         <div ng-repeat="bimestre in $ctrl.aguaBimestres track by $index" class="input-content col-md-4">
                             <div class="input-text">
@@ -176,19 +200,7 @@
                     <div class="question-text">
                         Cantidad de residuos generados
                         <div class="subtitle">Indique la cantidad de bolsa generadas por día (en promedio)</div>
-                      <div id="cresiduos" class="modal fade" role="dialog">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                              <i class="icon-eco_basura"></i><div class="title">Consejos de ahorro</div>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          </div>
-                          <div class="modal-body" style="text-aling: left;">
-                              <div class="subtitle"><a href="http://www.buenosaires.gob.ar/ciudadverde/separacion/como-se-separan-los-residuos" target="_blank">Cómo se separan los residuos</a></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                        <div class="subtitle"><a href="http://www.buenosaires.gob.ar/ciudadverde/separacion/como-se-separan-los-residuos" target="blank">Cómo se separan los residuos</a></div>
                     </div>
                     <div class="bolsa-container">
                         <div class="input-content">
@@ -222,7 +234,32 @@
                     <div class="question-text">
                         Traslados al trabajo o estudio
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario al trabajo o estudio</div>
-                        <div class="text"> Para calcular distancia haga click <a target="_blank" href="https://www.google.com.ar/maps">aqui.</a></div>
+                        <div class="subtitle"><button data-toggle="modal" data-target="#mtranslado">¿Como puedo obtener esta información?</button></div>
+
+                        <div id="mtranslado" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <i class="icon-eco_colectivo"></i><div class="title">Herramientas</div>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body" style="text-aling: left;">
+                                    <div class="subtitle">Calcular distancias</div>
+                                    <div class="text">Podes mediar las distancias de tus destintos  usando la herramienta de Google Maps haciendo click <a target="_blank" href="https://www.google.com.ar/maps">aqui.</a></div>
+                                    <div class="subtitle">¿Como mido las distancias usando Google Maps?</div>
+                                    <div class="text">
+                                      Para medir las distancias, hacer click con el botón derecho apoyando la
+                                      flecha del mouse en el punto de partida; elegir “medir distancias” en el
+                                      menú de opciones que aparece y llevar la punta del mouse hasta el
+                                      destino. Una vez marcada la distancia en línea recta, parar el mouse en la
+                                      línea y hacer desplazamientos para trazar el camino por las calles.
+                                      </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
                     </div>
                     <transpselector data="commuting" add-other="$ctrl.addCommutingTransp(selected)" remove="$ctrl.removeCommutingTransp(toRemove)" ng-repeat="commuting in $ctrl.transpCommuting" scroll-if="commuting.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
@@ -235,8 +272,8 @@
                     <div class="question-text">
                         Traslados a otras actividades
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario a otras actividades</div>
-                        <div class="text"> Para calcular distancia haga click <a target="_blank" href="https://www.google.com.ar/maps">aqui.</a></div>
-                    </div>
+                        <div class="subtitle"><button data-toggle="modal" data-target="#mtranslado">¿Como puedo obtener esta información?</button></div>
+                   </div>
                     <transpselector data="actividad" add-other="$ctrl.addActividadTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades" scroll-if="actividad.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
             </div>
@@ -261,7 +298,7 @@
                     <div class="question-text">
                         Viajes en otros vehículos
                         <div class="subtitle">Tipos de transportes y distancias realizados</div>
-                        <div class="text"> Para calcular distancia haga click <a target="_blank" href="https://www.google.com.ar/maps">aqui.</a></div>
+                        <div class="subtitle"><button data-toggle="modal" data-target="#mtranslado">¿Como puedo obtener esta información?</button></div>
                     </div>
                     <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes" scroll-if="viaje.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
