@@ -10,7 +10,7 @@ export const avionselector = {
 
         const traspOptions = [{
                 name: 'Cabotaje',
-                factor: 0.001,
+                factor: 0.303,
                 factorEscalas: 18
             },
             {
@@ -35,7 +35,7 @@ export const avionselector = {
 
         function compute() {
             if (vm.optionselectedtransp) {
-                vm.data.consumo = (vm.optionselectedtransp.factor * vm.recorrido) + (vm.escalas * vm.optionselectedtransp.factorEscalas);
+                vm.data.consumo = (vm.optionselectedtransp.factor * vm.recorrido) + ((vm.escalas + 1) * vm.optionselectedtransp.factorEscalas);
             } else {
                 vm.data.consumo = 0;
             }
