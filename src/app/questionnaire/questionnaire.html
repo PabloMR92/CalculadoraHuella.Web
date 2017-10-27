@@ -19,7 +19,7 @@
                         <i class="icon-eco_personas"></i>
                     </div>
                     <div class="question-text">
-                        Cantidad de personas que comparten la vivienda
+                        1 - Cantidad de personas que comparten la vivienda
                     </div>
                     <div class="input-content">
                         <div class="input-text">
@@ -36,8 +36,8 @@
                         <i class="icon-eco_electicidad"></i>
                     </div>
                     <div class="question-text">
-                        Consumo bimestral de electricidad
-                        <div class="subtitle"><button data-toggle="modal" data-target="#melectriciddad">¿Cómo puedo obtener esta información?</button></div>
+                      2 -  Consumo bimestral de electricidad
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#melectriciddad">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
                         <div class="subtitle"><a href="http://www.edenor.com.ar/cms/SP/CLI/HOG/USO.html" target="blank">Consejos de ahorro</a></div>
 
                         <div id="melectriciddad" class="modal fade" role="dialog">
@@ -84,8 +84,8 @@
                         <i class="icon-eco_gas"></i>
                     </div>
                     <div class="question-text">
-                        Consumo bimestral de gas
-                        <div class="subtitle"><button data-toggle="modal" data-target="#mgas">¿Cómo puedo obtener esta información?</button></div>
+                      3 - Consumo bimestral de gas
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mgas">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
                         <div class="subtitle"><a href="https://www.metrogas.com.ar/Paginas/ahorra-gas.aspx" target="blank">Consejos de ahorro</a></div>
                       <div id="mgas" class="modal fade" role="dialog">
                       <div class="modal-dialog">
@@ -131,8 +131,8 @@
                         <i class="icon-eco_agua_caliente"></i>
                     </div>
                     <div class="question-text">
-                        Consumo bimestral de agua
-                        <div class="subtitle"><button data-toggle="modal" data-target="#magua">¿Cómo puedo obtener esta información?</button></div>
+                      4 -  Consumo bimestral de agua
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#magua">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
                         <div class="subtitle"><button data-toggle="modal" data-target="#cagua">Consejos de ahorro</button></div>
 
                   <div id="magua" class="modal fade" role="dialog">
@@ -166,7 +166,7 @@
                         <div class="modal-body" style="text-aling: left;">
                             <div class="subtitle">Consumos, pérdidas y ahorro</div>
                             <div class="text">
-                              Enterate los distintos consumos y consejos sobre pérdidas y ahorros haciendo click <a href="http://www.aysa.com.ar/Media/archivos/562/CAU-8%20-%20Consejos.pdf" target="_blank">aquí</a>.
+                              Entérese los distintos consumos y consejos sobre pérdidas y ahorros haciendo click <a href="http://www.aysa.com.ar/Media/archivos/562/CAU-8%20-%20Consejos.pdf" target="_blank">aquí</a>.
                             </div>
                             <div class="subtitle">¿Cómo tomar conciencia?</div>
                             <div class="text">
@@ -190,6 +190,39 @@
                     </div>
                     </div>
                 </div>
+
+                <div class="row first">
+                    <div class="col-md-12">
+                        <div class="question-icon">
+                            <i class="icon-eco_alimento"></i>
+                        </div>
+                        <div class="question-text">
+                          5 - Dieta diaria de alimentos
+                        </div>
+                        <div class="bolsa-container">
+                            <div class="input-content">
+                                <div class="input-text">
+                                    <input type="number" only-number min="0" ng-model="$ctrl.residuos" required>
+                                    <hr>
+                                </div>
+                                <div class="unit">
+                                    (Kilos)
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselectedbolsa}">
+                                    {{ $ctrl.optionselectedbolsa ? $ctrl.optionselectedbolsa.name : 'Elegir peso'}}
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li ng-class="{'selected-option': option === $ctrl.optionselectedbolsa}" ng-repeat="option in $ctrl.bolsasOptions" ng-click="$ctrl.selectBolsa(option)">{{ option.name }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
         </div>
         <div class="container-fluid main separator" in-view="$ctrl.residInView($index, $inview, $inviewInfo)" in-view-options="{ generateParts: true, offset: [-200,0,0,0] }">
             <div class="row first">
@@ -198,7 +231,7 @@
                         <i class="icon-eco_basura"></i>
                     </div>
                     <div class="question-text">
-                        Cantidad de residuos generados
+                    6 - Cantidad de residuos generados
                         <div class="subtitle">Indique la cantidad de bolsa generadas por día (en promedio)</div>
                         <div class="subtitle"><a href="http://www.buenosaires.gob.ar/ciudadverde/separacion/como-se-separan-los-residuos" target="blank">Cómo se separan los residuos</a></div>
                     </div>
@@ -232,9 +265,9 @@
                         <i class="icon-eco_trabajo"></i>
                     </div>
                     <div class="question-text">
-                        Traslados al trabajo o estudio
+                      7 - Traslados al trabajo o estudio
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario al trabajo o estudio</div>
-                        <div class="subtitle"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
 
                         <div id="mtranslado" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -270,9 +303,9 @@
                         <i class="icon-eco_bailar"></i>
                     </div>
                     <div class="question-text">
-                        Traslados a otras actividades
+                      8 - Traslados a otras actividades
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario a otras actividades</div>
-                        <div class="subtitle"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
                    </div>
                     <transpselector data="actividad" add-other="$ctrl.addActividadTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades" scroll-if="actividad.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
@@ -283,7 +316,7 @@
                         <i class="icon-eco_avion"></i>
                     </div>
                     <div class="question-text">
-                        Viajes en avión realizados durante el año
+                      9 - Viajes en avión realizados durante el año
                         <div class="subtitle">ipos de vuelos, escalas y distancias recorridas por vuelo</div>
                         <div class="text">Para calcular distancia del vuelo haga click <a target="_blank" href="http://www.distanciasentreciudades.com">aquí.</a></div>
                     </div>
@@ -296,9 +329,9 @@
                         <i class="icon-eco_turismo"></i>
                     </div>
                     <div class="question-text">
-                        Viajes en otros vehículos
+                      10 - Viajes en otros vehículos
                         <div class="subtitle">Tipos de transportes y distancias recorridas</div>
-                        <div class="subtitle"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
                     </div>
                     <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes" scroll-if="viaje.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
@@ -309,7 +342,7 @@
                         <i class="icon-eco_hospedaje"></i>
                     </div>
                     <div class="question-text">
-                        Hospedaje en viaje
+                    11 - Hospedaje en viaje
                         <div class="subtitle">Cantidad de noches</div>
                     </div>
                     <div class="input-content">
