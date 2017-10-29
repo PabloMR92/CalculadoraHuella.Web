@@ -391,27 +391,33 @@ intro {
     font-size: 13px;
     color: #666;
 }
+
 .modal-header {
     display: block !important;
 }
+
 .question-text .modal-header i {
-    color:  rgb(141, 166, 46);
+    color: rgb(141, 166, 46);
     font-size: xx-large;
     float: left;
 }
+
 .question-text .modal-header .title {
     font-weight: 500;
     font-size: larger;
     float: left;
 }
+
 .question-text .modal-header .close {
     text-decoration: none !important;
     font-size: x-large !important;
 }
+
 .question-text .modal-body .subtitle,
 .question-text .modal-body .text {
     text-align: left;
 }
+
 .question-text .modal-body .text {
     margin-bottom: 20px;
 }
@@ -427,17 +433,19 @@ intro {
     text-decoration: underline;
     font-weight: 500;
 }
-.question-text  button:hover,
-.question-text  a:hover {
-    color:  rgb(141, 166, 46);
+
+.question-text button:hover,
+.question-text a:hover {
+    color: rgb(141, 166, 46);
 }
-.question-text  button:active {
+
+.question-text button:active {
     outline: none;
     border: none;
 }
 
 .question-text button:focus {
-    outline:0;
+    outline: 0;
 }
 
 .unit {
@@ -537,7 +545,8 @@ a[ui-sref]:hover {
 
 transpselector,
 avionselector,
-.bolsa-container {
+.bolsa-container,
+.dieta-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -562,7 +571,8 @@ avionselector>div {
     }
     transpselector .dropdown,
     avionselector .dropdown,
-    .bolsa-container .dropdown {
+    .bolsa-container .dropdown,
+    .dieta-container .dropdown {
         min-height: 50px;
         margin-left: 30px;
     }
@@ -571,7 +581,8 @@ avionselector>div {
 @media (max-width: 750px) {
     transpselector .dropdown,
     avionselector .dropdown,
-    .bolsa-container .dropdown {
+    .bolsa-container .dropdown,
+    .dieta-container .dropdown {
         min-height: 65px;
         display: flex;
         justify-content: center;
@@ -580,7 +591,8 @@ avionselector>div {
 
 transpselector .dropdown,
 avionselector .dropdown,
-.bolsa-container .dropdown {
+.bolsa-container .dropdown,
+.dieta-container .dropdown {
     height: 50px;
 }
 
@@ -601,7 +613,8 @@ avionselector .dropdown,
 
 transpselector .dropdown .btn,
 avionselector .dropdown .btn,
-.bolsa-container .dropdown .btn {
+.bolsa-container .dropdown .btn,
+.dieta-container .dropdown .btn {
     height: auto;
     background-color: transparent;
     color: rgb(93, 93, 93);
@@ -614,7 +627,8 @@ avionselector .dropdown .btn,
 
 transpselector .dropdown .btn:before,
 avionselector .dropdown .btn:before,
-.bolsa-container .dropdown .btn:before {
+.bolsa-container .dropdown .btn:before,
+.dieta-container .dropdown .btn:before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -631,20 +645,23 @@ avionselector .dropdown .btn:before,
 
 transpselector .dropdown .btn.selected:before,
 avionselector .dropdown .btn.selected:before,
-.bolsa-container .dropdown .btn.selected:before {
+.bolsa-container .dropdown .btn.selected:before,
+.dieta-container .dropdown .btn.selected:before {
     transform: scale(1);
     transition: all 0.2s linear;
 }
 
 transpselector .dropdown .btn.error,
 avionselector .dropdown .btn.error,
-.bolsa-container .dropdown .btn.error {
+.bolsa-container .dropdown .btn.error,
+.dieta-container .dropdown .btn.error {
     border-bottom: 2px solid red;
 }
 
 transpselector .dropdown .dropdown-menu li:not(.dropdown-divider),
 avionselector .dropdown .dropdown-menu li:not(.dropdown-divider),
-.bolsa-container .dropdown .dropdown-menu li:not(.dropdown-divider) {
+.bolsa-container .dropdown .dropdown-menu li:not(.dropdown-divider),
+.dieta-container .dropdown .dropdown-menu li:not(.dropdown-divider) {
     padding: 5px;
     cursor: pointer;
     transition: all 0.3s linear;
@@ -658,15 +675,18 @@ avionselector .dropdown .dropdown-menu li:not(.transp):not(.dropdown-divider) {
 transpselector .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 avionselector .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 .bolsa-container .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
+.dieta-container .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 transpselector .dropdown .dropdown-menu li.selected-option,
 avionselector .dropdown .dropdown-menu li.selected-option,
-.bolsa-container .dropdown .dropdown-menu li.selected-option {
+.bolsa-container .dropdown .dropdown-menu li.selected-option,
+.dieta-container .dropdown .dropdown-menu li.selected-option {
     color: rgb(141, 166, 46);
 }
 
 transpselector .dropdown .dropdown-menu li:first-child,
 avionselector .dropdown .dropdown-menu li:first-child,
-.bolsa-container .dropdown .dropdown-menu li {
+.bolsa-container .dropdown .dropdown-menu li,
+.dieta-container .dropdown .dropdown-menu li {
     text-align: center;
 }
 
@@ -676,6 +696,9 @@ transpselector .show>.btn-primary.dropdown-toggle,
 .bolsa-container .btn-primary.active,
 .bolsa-container .btn-primary:active,
 .bolsa-container .show>.btn-primary.dropdown-toggle,
+.dieta-container .btn-primary.active,
+.dieta-container .btn-primary:active,
+.dieta-container .show>.btn-primary.dropdown-toggle,
 avionselector .btn-primary.active,
 avionselector .btn-primary:active,
 avionselector .show>.btn-primary.dropdown-toggle {
@@ -689,6 +712,8 @@ transpselector .btn-primary.focus,
 transpselector .btn-primary:focus,
 .bolsa-container .btn-primary.focus,
 .bolsa-container .btn-primary:focus,
+.dieta-container .btn-primary.focus,
+.dieta-container .btn-primary:focus,
 avionselector .btn-primary.focus,
 avionselector .btn-primary:focus {
     box-shadow: none;
@@ -723,21 +748,25 @@ body .popeye-modal-container .popeye-modal {
     font-weight: bold;
     text-decoration: underline rgb(239, 255, 159);
 }
-.popeye-modal ul{
-    margin:10px auto 20px;
-    max-width:100%;
+
+.popeye-modal ul {
+    margin: 10px auto 20px;
+    max-width: 100%;
 }
-.popeye-modal ul li{
-     font-size: 14px;
+
+.popeye-modal ul li {
+    font-size: 14px;
 }
-.popeye-modal ul li a{
+
+.popeye-modal ul li a {
     color: #ffffff;
 }
+
 @media (max-width: 750px) {
-    .navbar-brand img{
+    .navbar-brand img {
         width: 200px;
     }
-    .calcular-huella-header{
+    .calcular-huella-header {
         display: none;
     }
     .question-progress>div:not(:last-child) {
@@ -769,7 +798,9 @@ body .popeye-modal-container .popeye-modal {
     .unit {
         font-size: 0.9em;
     }
-    transpselector .dropdown .btn, avionselector .dropdown .btn, .bolsa-container .dropdown .btn {
+    transpselector .dropdown .btn,
+    avionselector .dropdown .btn,
+    .bolsa-container .dropdown .btn {
         font-size: 0.9em;
     }
     .py-4 {
@@ -782,10 +813,10 @@ body .popeye-modal-container .popeye-modal {
 }
 
 @media (max-width: 750px) {
-    .navbar-brand img{
+    .navbar-brand img {
         width: 200px;
     }
-    .calcular-huella-header{
+    .calcular-huella-header {
         display: none;
     }
     .question-progress>div:not(:last-child) {
@@ -817,7 +848,9 @@ body .popeye-modal-container .popeye-modal {
     .unit {
         font-size: 0.9em;
     }
-    transpselector .dropdown .btn, avionselector .dropdown .btn, .bolsa-container .dropdown .btn {
+    transpselector .dropdown .btn,
+    avionselector .dropdown .btn,
+    .bolsa-container .dropdown .btn {
         font-size: 0.9em;
     }
     .py-4 {

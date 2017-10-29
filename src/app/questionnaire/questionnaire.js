@@ -33,8 +33,25 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
         }
     ];
 
+    vm.dietaOptions = [{
+            name: 'Rica en carne',
+            factor: 6
+        },
+        {
+            name: 'Baje en carne',
+            factor: 3
+        }, {
+            name: 'Sin carne',
+            factor: 2
+        }
+    ];
+
     vm.selectBolsa = option => {
         vm.optionselectedbolsa = option;
+    };
+
+    vm.selectDieta = option => {
+        vm.optionselecteddieta = option;
     };
 
     vm.homeInView = (index, inview) => {
@@ -298,6 +315,8 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             }
             const totalResiduos = habitantes === 0 ? 0 : (residuosFactor / habitantes) * 1.668 * 360;
 
+            const totalDieta = vm.optionselecteddieta ? vm.optionselecteddieta.factor * 360 : 0;
+
             const totalElectricidad = habitantes === 0 ? 0 : vm.electricidadBimestres.reduce((valorAnterior, valorActual) => {
                 return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
             }, 0);
@@ -317,7 +336,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 controller: 'resultController as ctrl',
                 resolve: {
                     result: function() {
-                        return (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua) / 1000;
+                        return (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua + totalDieta) / 1000;
                     }
                 }
             });
@@ -333,7 +352,8 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 electricidadBimestres: vm.electricidadBimestres,
                 gasBimestres: vm.gasBimestres,
                 aguaBimestres: vm.aguaBimestres,
-                residuosBolsa: vm.optionselectedbolsa
+                residuosBolsa: vm.optionselectedbolsa,
+                dieta: vm.optionselecteddieta
             };
         } else {
             $timeout(() => {
@@ -368,6 +388,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             vm.gasBimestres = previousResult.gasBimestres;
             vm.aguaBimestres = previousResult.aguaBimestres;
             vm.optionselectedbolsa = previousResult.residuosBolsa;
+            vm.optionselecteddieta = previousResult.dieta;
 
             const filterTranspCommuting = previousResult.transpCommuting.filter(item => {
                 return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
