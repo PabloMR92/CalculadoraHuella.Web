@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'eco';
-  src: url('../font/eco.eot?9409414');
-  src: url('../font/eco.eot?9409414#iefix') format('embedded-opentype'),
-       url('../font/eco.woff2?9409414') format('woff2'),
-       url('../font/eco.woff?9409414') format('woff'),
-       url('../font/eco.ttf?9409414') format('truetype'),
-       url('../font/eco.svg?9409414#eco') format('svg');
+  src: url('../font/eco.eot?37428190');
+  src: url('../font/eco.eot?37428190#iefix') format('embedded-opentype'),
+       url('../font/eco.woff2?37428190') format('woff2'),
+       url('../font/eco.woff?37428190') format('woff'),
+       url('../font/eco.ttf?37428190') format('truetype'),
+       url('../font/eco.svg?37428190#eco') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'eco';
-    src: url('../font/eco.svg?9409414#eco') format('svg');
+    src: url('../font/eco.svg?37428190#eco') format('svg');
   }
 }
 */
@@ -83,3 +83,4 @@
 .icon-eco_colectivo:before { content: '\e819'; } /* '' */
 .icon-eco_camioneta:before { content: '\e81a'; } /* '' */
 .icon-eco_casa:before { content: '\e81b'; } /* '' */
+.icon-eco_alimento:before { content: '\e81c'; } /* '' */

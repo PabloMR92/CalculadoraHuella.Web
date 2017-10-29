@@ -386,6 +386,9 @@ intro {
 .question-text .subtitle {
     font-size: 14px;
 }
+.question-text .subtitle.big button {
+    font-size: 15px;
+}
 
 .question-text .text {
     font-size: 13px;
