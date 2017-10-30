@@ -705,10 +705,11 @@ transpselector .show>.btn-primary.dropdown-toggle,
 avionselector .btn-primary.active,
 avionselector .btn-primary:active,
 avionselector .show>.btn-primary.dropdown-toggle {
-    background-color: transparent;
+    background-color: transparent !important;
     font-weight: 700;
-    color: rgb(141, 166, 46);
-    border-color: transparent;
+    color: rgb(141, 166, 46) !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
 }
 
 transpselector .btn-primary.focus,
