@@ -120,7 +120,10 @@ intro {
     align-items: center;
     z-index: 500;
 }
-
+.intro {
+    font-size: 14px;
+    padding: 25px 0 !important;
+}
 .question-container {
     background-color: rgb(239, 239, 239);
     flex: 1 1 auto;
@@ -549,7 +552,8 @@ a[ui-sref]:hover {
 transpselector,
 avionselector,
 .bolsa-container,
-.dieta-container {
+.dieta-container,
+.calculo-alternativo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -575,7 +579,9 @@ avionselector>div {
     transpselector .dropdown,
     avionselector .dropdown,
     .bolsa-container .dropdown,
-    .dieta-container .dropdown {
+    .dieta-container .dropdown,
+    .calculo-alternativo .dropdown
+    {
         min-height: 50px;
         margin-left: 30px;
     }
@@ -585,7 +591,8 @@ avionselector>div {
     transpselector .dropdown,
     avionselector .dropdown,
     .bolsa-container .dropdown,
-    .dieta-container .dropdown {
+    .dieta-container .dropdown,
+    .calculo-alternativo .dropdown {
         min-height: 65px;
         display: flex;
         justify-content: center;
@@ -595,7 +602,8 @@ avionselector>div {
 transpselector .dropdown,
 avionselector .dropdown,
 .bolsa-container .dropdown,
-.dieta-container .dropdown {
+.dieta-container .dropdown,
+.calculo-alternativo .dropdown {
     height: 50px;
 }
 
@@ -617,7 +625,8 @@ avionselector .dropdown,
 transpselector .dropdown .btn,
 avionselector .dropdown .btn,
 .bolsa-container .dropdown .btn,
-.dieta-container .dropdown .btn {
+.dieta-container .dropdown .btn,
+.calculo-alternativo .dropdown .btn {
     height: auto;
     background-color: transparent;
     color: rgb(93, 93, 93);
@@ -631,7 +640,8 @@ avionselector .dropdown .btn,
 transpselector .dropdown .btn:before,
 avionselector .dropdown .btn:before,
 .bolsa-container .dropdown .btn:before,
-.dieta-container .dropdown .btn:before {
+.dieta-container .dropdown .btn:before,
+.calculo-alternativo .dropdown .btn:before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -649,7 +659,8 @@ avionselector .dropdown .btn:before,
 transpselector .dropdown .btn.selected:before,
 avionselector .dropdown .btn.selected:before,
 .bolsa-container .dropdown .btn.selected:before,
-.dieta-container .dropdown .btn.selected:before {
+.dieta-container .dropdown .btn.selected:before,
+.calculo-alternativo .dropdown .btn.selected:before  {
     transform: scale(1);
     transition: all 0.2s linear;
 }
@@ -657,14 +668,16 @@ avionselector .dropdown .btn.selected:before,
 transpselector .dropdown .btn.error,
 avionselector .dropdown .btn.error,
 .bolsa-container .dropdown .btn.error,
-.dieta-container .dropdown .btn.error {
+.dieta-container .dropdown .btn.error,
+.calculo-alternativo .dropdown .btn.error {
     border-bottom: 2px solid red;
 }
 
 transpselector .dropdown .dropdown-menu li:not(.dropdown-divider),
 avionselector .dropdown .dropdown-menu li:not(.dropdown-divider),
 .bolsa-container .dropdown .dropdown-menu li:not(.dropdown-divider),
-.dieta-container .dropdown .dropdown-menu li:not(.dropdown-divider) {
+.dieta-container .dropdown .dropdown-menu li:not(.dropdown-divider),
+.calculo-alternativo .dropdown .dropdown-menu li:not(.dropdown-divider) {
     padding: 5px;
     cursor: pointer;
     transition: all 0.3s linear;
@@ -679,17 +692,20 @@ transpselector .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 avionselector .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 .bolsa-container .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 .dieta-container .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
+.calculo-alternativo .dropdown .dropdown-menu li:not(.dropdown-divider):hover,
 transpselector .dropdown .dropdown-menu li.selected-option,
 avionselector .dropdown .dropdown-menu li.selected-option,
 .bolsa-container .dropdown .dropdown-menu li.selected-option,
-.dieta-container .dropdown .dropdown-menu li.selected-option {
+.dieta-container .dropdown .dropdown-menu li.selected-option,
+.calculo-alternativo .dropdown .dropdown-menu li.selected-option {
     color: rgb(141, 166, 46);
 }
 
 transpselector .dropdown .dropdown-menu li:first-child,
 avionselector .dropdown .dropdown-menu li:first-child,
 .bolsa-container .dropdown .dropdown-menu li,
-.dieta-container .dropdown .dropdown-menu li {
+.dieta-container .dropdown .dropdown-menu li,
+.calculo-alternativo .dropdown .dropdown-menu li {
     text-align: center;
 }
 
@@ -702,6 +718,9 @@ transpselector .show>.btn-primary.dropdown-toggle,
 .dieta-container .btn-primary.active,
 .dieta-container .btn-primary:active,
 .dieta-container .show>.btn-primary.dropdown-toggle,
+.calculo-alternativo .btn-primary.active,
+.calculo-alternativo .btn-primary:active,
+.calculo-alternativo .show>.btn-primary.dropdown-toggle,
 avionselector .btn-primary.active,
 avionselector .btn-primary:active,
 avionselector .show>.btn-primary.dropdown-toggle {
@@ -718,6 +737,8 @@ transpselector .btn-primary:focus,
 .bolsa-container .btn-primary:focus,
 .dieta-container .btn-primary.focus,
 .dieta-container .btn-primary:focus,
+.calculo-alternativo .btn-primary.focus,
+.calculo-alternativo .btn-primary:focus,
 avionselector .btn-primary.focus,
 avionselector .btn-primary:focus {
     box-shadow: none;
