@@ -57,7 +57,6 @@
                     <div class="question-text">
                       2 -  Consumo bimestral de electricidad
                         <div class="subtitle big"><button data-toggle="modal" data-target="#melectriciddad">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
-                        <!--<div class="subtitle"><a href="http://www.edenor.com.ar/cms/SP/CLI/HOG/USO.html" target="blank">Consejos de ahorro</a></div>-->
 
                         <div id="melectriciddad" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -72,14 +71,6 @@
                                         <div class="text">
                                             Le mostramos dónde puede encontrar esta información en las facturas de <a href="../../assets/img/fac_edenor.jpg" target="blank">Edenor</a> y <a href="../../assets/img/fac_edesur.jpg" target="blank">Edesur</a>.
                                         </div>
-                                        <!--<div class="subtitle">Consumos individuales por aparato</div>
-                                        <div class="text">
-                                            Si no conoce su consumo eléctrico, se recomienda colocar el valor de consumo como suma de los consumos por artefacto eléctrico que tenga en el hogar. Puede ver los consumos individuales por aparato haciendo click
-                                            <a href="http://www.edenor.com.ar/cms/SP/CLI/HOG/USO_consumo.html" target="_blank">aquí</a>.
-                                        </div>
-                                        <div class="subtitle">Simulador de consumo</div>
-                                        <div class="text">
-                                            También puede calcular sus consumos basándose en el <a target="_blank" href="http://www.edenor.com.ar/edenorweb/pages/tarifas/casavirtual.jsp?zona=Capital">simulador de consumo</a> de Edenor </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -122,14 +113,6 @@
                                             Le mostramos dónde puede encontrar esta información en las factura de <a href="../../assets/img/fac_metrogas.jpg" target="blank">Metrogas</a>.<br> Alternativamente, puede ver el detalle de la factura <a target="_blank"
                                                 href="https://www.metrogas.com.ar/hogares/Paginas/entende-tu-factura.aspx">aquí</a>.
                                         </div>
-                                    <!--<div class="subtitle">Consumos individuales por aparato</div>
-                                        <div class="text">
-                                            Si no conoce su consumo de gas, se recomienda colocar el valor de consumo como suma de los consumos por artefacto que tenga en el hogar. Puede ver los consumos individuales por aparato haciendo click <a href="https://www.enargas.gob.ar/secciones/eficiencia-energetica/consumo-artefactos.php"
-                                                target="_blank">aquí</a>.
-                                        </div>
-                                        <div class="subtitle">Simulador de consumo</div>
-                                        <div class="text">
-                                            También puede calcular sus consumos basándose en el <a target="_blank" href="http://www.enargas.gov.ar/secciones/eficiencia-energetica/simulador-consumos/simulador-consumos.php">simulador de consumo</a> de Enargas</div>-->
                                     </div>
                                 </div>
                             </div>
@@ -156,8 +139,6 @@
                     <div class="question-text">
                       4 -  Consumo bimestral de agua
                         <div class="subtitle big"><button data-toggle="modal" data-target="#magua">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
-                        <!--<div class="subtitle"><button data-toggle="modal" data-target="#cagua">Consejos de ahorro</button></div>-->
-
                         <div id="magua" class="modal fade" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -172,9 +153,6 @@
                                             Le mostramos dónde puede encontrar esta información en las factura de <a href="../../assets/img/fac_aysa.png" target="blank">AySA</a>.<br> Alternativamente, puede ver el detalle de la factura <a target="_blank"
                                                 href=" http://www.aysa.com.ar/index.php?id_seccion=678 ">aquí.</a>.
                                         </div>
-                                        <!--<div class="subtitle">Simulador de consumo</div>
-                                        <div class="text">
-                                            También puede calcular sus consumos basándose en el <a target="_blank" href="http://www.aguascordobesas.com.ar/testconsumo/test.html">simulador de consumo</a> de Aguas Cordobesas</div>-->
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +245,6 @@
                     <div class="question-text">
                     7 - Cantidad de residuos generados
                         <div class="subtitle">Indique la cantidad de bolsa generadas por día (en promedio)</div>
-                        <!--<div class="subtitle"><a href="http://www.buenosaires.gob.ar/ciudadverde/separacion/como-se-separan-los-residuos" target="blank">Cómo se separan los residuos</a></div>-->
                     </div>
                     <div class="bolsa-container">
                         <div class="input-content">
@@ -301,7 +278,7 @@
                     <div class="question-text">
                       8 - Traslados al trabajo o estudio
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario al trabajo o estudio</div>
-                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
 
                         <div id="mtranslado" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -337,7 +314,7 @@
                     <div class="question-text">
                     9 - Traslados a otras actividades
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario a otras actividades</div>
-                          <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
                    </div>
                     <transpselector data="actividad" add-other="$ctrl.addActividadTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades" scroll-if="actividad.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
@@ -350,7 +327,7 @@
                     <div class="question-text">
                       10 - Viajes en avión realizados durante el año
                         <div class="subtitle">Tipos de vuelos, escalas y distancias recorridas por vuelo</div>
-                        <div class="text">Para calcular distancia del vuelo haga click <a target="_blank" href="http://www.distanciasentreciudades.com">aquí.</a></div>
+                        <div class="text big"><a target="_blank" href="http://www.distanciasentreciudades.com"> Para calcular distancia del vuelo haga click aquí.</a></div>
                     </div>
                     <avionselector data="vuelo" add-other="$ctrl.addViajeVuelo(selected)" remove="$ctrl.removeViajeVuelo(toRemove)" ng-repeat="vuelo in $ctrl.transpVuelos" scroll-if="vuelo.highlight" scrollable-watcher="#container"></avionselector>
                 </div>
@@ -363,7 +340,7 @@
                     <div class="question-text">
                       11 - Viajes en otros vehículos
                         <div class="subtitle">Tipos de transportes y distancias recorridas</div>
-                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">¿Cómo puedo obtener esta información o formas alternativas de cálculo?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
                     </div>
                     <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes" scroll-if="viaje.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
