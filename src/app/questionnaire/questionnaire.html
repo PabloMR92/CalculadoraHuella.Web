@@ -13,20 +13,20 @@
     </div>
 
     <div class="question-container">
-      <div class="container-fluid main separator intro">
-      <div class="row first">
-          <div class="col-md-12">
-            La huella de carbono es una medida del impacto que provocan las actividades del hombre sobre el ambiente (a nivel individual, empresarial o territorial), en términos de la cantidad de emisiones de gases efecto invernadero (GEI) emitida a la atmósfera, medida en unidades de dióxido de carbono equivalente (CO2eq).<br><br>
+        <div class="container-fluid main separator intro">
+            <div class="row first">
+                <div class="col-md-12">
+                    La huella de carbono es una medida del impacto que provocan las actividades del hombre sobre el ambiente (a nivel individual, empresarial o territorial), en términos de la cantidad de emisiones de gases efecto invernadero (GEI) emitida a la atmósfera,
+                    medida en unidades de dióxido de carbono equivalente (CO2eq).<br><br> A continuación, Ud. encontrará una serie de pasos a completar para calcular su huella de carbono individual. La huella individual se divide en
+                    tres rubros: (i) emisiones que ocurren en el hogar como consecuencia del consumo de energía eléctrica, gas natural y agua, más la demanda de alimentos de su dieta y la cantidad de residuos generados y (ii) emisiones que ocurren fuera
+                    del hogar asociadas al transporte para ir al trabajo o a estudiar, para actividades cotidianas y viajes de vacaciones o negocios, incluida la estadía en hotelería.<br><br> Para lograr una mayor precisión en la estimación de la huella
+                    de carbono, se le pedirá, en primera instancia, completar los datos bimestrales de consumo de electricidad, gas y agua en base a los datos de las facturas de esos servicios. Si Ud. no cuenta con dicha información a mano, puede estimar
+                    aproximadamente las emisiones asociadas a los tres consumos mencionados, por medio del cálculo alternativo que se le ofrece luego de la solicitud de los consumos bimestrales (paso 5, salteando los pasos 2, 3 y 4).<br><br> El resto
+                    de los campos los puede completar con lo que recuerde de las prácticas que lleva a cabo en las distintas actividades.<br>
 
-            A continuación, Ud. encontrará una serie de pasos a completar para calcular su huella de carbono individual. La huella individual se divide en tres rubros: (i) emisiones que ocurren en el hogar como consecuencia del consumo de energía eléctrica, gas natural y agua, más la demanda de alimentos de su dieta y la cantidad de residuos generados y (ii) emisiones que ocurren fuera del hogar asociadas al transporte para ir al trabajo o a estudiar, para actividades cotidianas y viajes de vacaciones o negocios, incluida la estadía en hotelería.<br><br>
-
-            Para lograr una mayor precisión en la estimación de la huella de carbono, se le pedirá, en primera instancia, completar los datos bimestrales de consumo de electricidad, gas y agua en base a los datos de las facturas de esos servicios. Si Ud. no cuenta con dicha información a mano, puede estimar aproximadamente las emisiones asociadas a los tres consumos mencionados, por medio del cálculo alternativo que se le ofrece luego de la solicitud de los consumos bimestrales (paso 5, salteando los pasos 2, 3 y 4).<br><br>
-
-            El resto de los campos los puede completar con lo que recuerde de las prácticas que lleva a cabo en las distintas actividades.<br>
-
+                </div>
+            </div>
         </div>
-      </div>
-      </div>
     </div>
 
 
@@ -55,7 +55,7 @@
                         <i class="icon-eco_electicidad"></i>
                     </div>
                     <div class="question-text">
-                      2 -  Consumo bimestral de electricidad
+                        2 - Consumo bimestral de electricidad
                         <div class="subtitle big"><button data-toggle="modal" data-target="#melectriciddad">¿Cómo obtengo esta información a partir de la factura?</button></div>
 
                         <div id="melectriciddad" class="modal fade" role="dialog">
@@ -96,7 +96,7 @@
                         <i class="icon-eco_gas"></i>
                     </div>
                     <div class="question-text">
-                      3 - Consumo bimestral de gas
+                        3 - Consumo bimestral de gas
                         <div class="subtitle big"><button data-toggle="modal" data-target="#mgas">¿Cómo obtengo esta información a partir de la factura?</button></div>
                         <div id="mgas" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -136,7 +136,7 @@
                         <i class="icon-eco_agua_caliente"></i>
                     </div>
                     <div class="question-text">
-                      4 -  Consumo bimestral de agua
+                        4 - Consumo bimestral de agua
                         <div class="subtitle big"><button data-toggle="modal" data-target="#magua">¿Cómo obtengo esta información a partir de la factura?</button></div>
                         <div id="magua" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -177,38 +177,38 @@
                         <i class="icon-eco_casa"></i>
                     </div>
                     <div class="question-text">
-                      5 -  Cálculo alternativo
+                        5 - Cálculo alternativo
                         <div class="text">
-                          Para las emisiones individuales del hogar (utilice esta opción cuando no tenga a mano ningún dato específico obtenibles de las facturas de los servicios contratados en su hogar)
+                            Para las emisiones individuales del hogar (utilice esta opción cuando no tenga a mano ningún dato específico obtenibles de las facturas de los servicios contratados en su hogar)
                         </div>
-                   </div>
+                    </div>
 
                     <div class="row">
                         <div class="input-content col-md-6">
-                          <div class="calculo-alternativo">
-                              <div class="dropdown" style="margin-left:0px !important;">
-                                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselecteddieta}">
-                                          {{ $ctrl.optionselecteddieta ? $ctrl.optionselecteddieta.name : 'Dimensiones de la vivienda'}}
+                            <div class="calculo-alternativo">
+                                <div class="dropdown" style="margin-left:0px !important;">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselecteddimension}">
+                                          {{ $ctrl.optionselecteddimension ? $ctrl.optionselecteddimension.name : 'Dimensiones de la vivienda'}}
                                           <span class="caret"></span>
                                       </button>
-                                  <ul class="dropdown-menu">
-                                      <li ng-class="{'selected-option': option === $ctrl.optionselecteddieta}" ng-repeat="option in $ctrl.dietaOptions" ng-click="$ctrl.selectDieta(option)">{{ option.name }}</li>
-                                  </ul>
-                              </div>
-                          </div>
+                                    <ul class="dropdown-menu">
+                                        <li ng-class="{'selected-option': option === $ctrl.optionselecteddimension}" ng-repeat="option in $ctrl.dimensionOptions" ng-click="$ctrl.selectDimension(option)">{{ option.name }}</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="input-content col-md-6">
-                          <div class="calculo-alternativo">
-                              <div class="dropdown" style="margin-left:0px !important;">
-                                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselecteddieta}">
-                                          {{ $ctrl.optionselecteddieta ? $ctrl.optionselecteddieta.name : 'Nivel de eficiencia'}}
+                            <div class="calculo-alternativo">
+                                <div class="dropdown" style="margin-left:0px !important;">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-class="{'selected': $ctrl.optionselectedeficiencia}">
+                                          {{ $ctrl.optionselectedeficiencia ? $ctrl.optionselectedeficiencia.name : 'Nivel de eficiencia'}}
                                           <span class="caret"></span>
                                       </button>
-                                  <ul class="dropdown-menu">
-                                      <li ng-class="{'selected-option': option === $ctrl.optionselecteddieta}" ng-repeat="option in $ctrl.dietaOptions" ng-click="$ctrl.selectDieta(option)">{{ option.name }}</li>
-                                  </ul>
-                              </div>
-                          </div>
+                                    <ul class="dropdown-menu">
+                                        <li ng-class="{'selected-option': option === $ctrl.optionselectedeficiencia}" ng-repeat="option in $ctrl.eficienciaOptions" ng-click="$ctrl.selectEficiencia(option)">{{ option.name }}</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -219,7 +219,7 @@
                         <i class="icon-eco_alimento"></i>
                     </div>
                     <div class="question-text">
-                      6 - Dieta diaria de alimentos
+                        6 - Dieta diaria de alimentos
                     </div>
                     <div class="dieta-container">
                         <div class="dropdown" style="margin-left:0px !important;">
@@ -242,7 +242,7 @@
                         <i class="icon-eco_basura"></i>
                     </div>
                     <div class="question-text">
-                    7 - Cantidad de residuos generados
+                        7 - Cantidad de residuos generados
                         <div class="subtitle">Indique la cantidad de bolsa generadas por día (en promedio)</div>
                     </div>
                     <div class="bolsa-container">
@@ -275,7 +275,7 @@
                         <i class="icon-eco_trabajo"></i>
                     </div>
                     <div class="question-text">
-                      8 - Traslados al trabajo o estudio
+                        8 - Traslados al trabajo o estudio
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario al trabajo o estudio</div>
                         <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
 
@@ -311,10 +311,10 @@
                         <i class="icon-eco_bailar"></i>
                     </div>
                     <div class="question-text">
-                    9 - Traslados a otras actividades
+                        9 - Traslados a otras actividades
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario a otras actividades</div>
                         <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
-                   </div>
+                    </div>
                     <transpselector data="actividad" add-other="$ctrl.addActividadTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades" scroll-if="actividad.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
             </div>
@@ -324,7 +324,7 @@
                         <i class="icon-eco_avion"></i>
                     </div>
                     <div class="question-text">
-                      10 - Viajes en avión realizados durante el año
+                        10 - Viajes en avión realizados durante el año
                         <div class="subtitle">Tipos de vuelos, escalas y distancias recorridas por vuelo</div>
                         <div class="text big"><a target="_blank" href="http://www.distanciasentreciudades.com"> Para calcular distancia del vuelo haga click aquí.</a></div>
                     </div>
@@ -337,7 +337,7 @@
                         <i class="icon-eco_turismo"></i>
                     </div>
                     <div class="question-text">
-                      11 - Viajes en otros vehículos
+                        11 - Viajes en otros vehículos
                         <div class="subtitle">Tipos de transportes y distancias recorridas</div>
                         <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
                     </div>
@@ -350,7 +350,7 @@
                         <i class="icon-eco_hospedaje"></i>
                     </div>
                     <div class="question-text">
-                    12 - Hospedaje en viaje
+                        12 - Hospedaje en viaje
                         <div class="subtitle">Cantidad de noches</div>
                     </div>
                     <div class="input-content">

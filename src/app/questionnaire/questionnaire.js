@@ -46,12 +46,46 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
         }
     ];
 
+    vm.dimensionOptions = [{
+            name: 'Pequeña: Menor que 80 m2',
+            factor: 5200
+        },
+        {
+            name: 'Mediana: Entre 80 y 160 m2',
+            factor: 14000
+        }, {
+            name: 'Grande: Entre 160 y 240 m2',
+            factor: 26000
+        }, {
+            name: 'Muy grande: Mayor que 240 m2',
+            factor: 37500
+        }
+    ];
+
+    vm.eficienciaOptions = [{
+            name: 'Alta',
+            factor: 0.75
+        },
+        {
+            name: 'Baja',
+            factor: 1
+        }
+    ];
+
     vm.selectBolsa = option => {
         vm.optionselectedbolsa = option;
     };
 
     vm.selectDieta = option => {
         vm.optionselecteddieta = option;
+    };
+
+    vm.selectDimension = option => {
+        vm.optionselecteddimension = option;
+    };
+
+    vm.selectEficiencia = option => {
+        vm.optionselectedeficiencia = option;
     };
 
     vm.homeInView = (index, inview) => {
@@ -317,17 +351,29 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
 
             const totalDieta = vm.optionselecteddieta ? vm.optionselecteddieta.factor * 360 : 0;
 
-            const totalElectricidad = habitantes === 0 ? 0 : vm.electricidadBimestres.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
-            }, 0);
+            const totalDimension = vm.optionselecteddimension ? vm.optionselecteddimension.factor : 0;
 
-            const totalGas = habitantes === 0 ? 0 : vm.gasBimestres.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 1.973) / habitantes);
-            }, 0);
+            const totalEficiencia = vm.optionselectedeficiencia ? vm.optionselectedeficiencia.factor : 0;
 
-            const totalAgua = habitantes === 0 ? 0 : vm.aguaBimestres.reduce((valorAnterior, valorActual) => {
-                return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.104) / habitantes);
-            }, 0);
+            const totalAlternativo = totalDimension * totalEficiencia;
+
+            let totalElectricidad = 0;
+            let totalGas = 0;
+            let totalAgua = 0;
+
+            if (totalAlternativo === 0) {
+                totalElectricidad = habitantes === 0 ? 0 : vm.electricidadBimestres.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.347) / habitantes);
+                }, 0);
+
+                totalGas = habitantes === 0 ? 0 : vm.gasBimestres.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 1.973) / habitantes);
+                }, 0);
+
+                totalAgua = habitantes === 0 ? 0 : vm.aguaBimestres.reduce((valorAnterior, valorActual) => {
+                    return valorAnterior + (((valorActual.consumo ? valorActual.consumo : 0) * 0.104) / habitantes);
+                }, 0);
+            }
 
             // $log.info('Consumo total:' + (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua));
 
@@ -336,7 +382,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 controller: 'resultController as ctrl',
                 resolve: {
                     result: function() {
-                        return (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua + totalDieta) / 1000;
+                        return (totalCommuting + totalActividades + totalViajes + totalVuelos + totalHospedaje + totalResiduos + totalElectricidad + totalGas + totalAgua + totalDieta + totalAlternativo) / 1000;
                     }
                 }
             });
@@ -353,7 +399,9 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
                 gasBimestres: vm.gasBimestres,
                 aguaBimestres: vm.aguaBimestres,
                 residuosBolsa: vm.optionselectedbolsa,
-                dieta: vm.optionselecteddieta
+                dieta: vm.optionselecteddieta,
+                dimension: vm.optionselecteddimension,
+                eficiencia: vm.optionselectedeficiencia
             };
         } else {
             $timeout(() => {
@@ -389,6 +437,8 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             vm.aguaBimestres = previousResult.aguaBimestres;
             vm.optionselectedbolsa = previousResult.residuosBolsa;
             vm.optionselecteddieta = previousResult.dieta;
+            vm.optionselecteddimension = previousResult.dimension;
+            vm.optionselectedeficiencia = previousResult.eficiencia;
 
             const filterTranspCommuting = previousResult.transpCommuting.filter(item => {
                 return angular.isDefined(item.obj) && (angular.isDefined(item.obj.optionselectedtransp) && angular.isDefined(item.obj.optionselectedcomb) && angular.isDefined(item.obj.recorrido));
