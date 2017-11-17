@@ -47,6 +47,9 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     ];
 
     vm.dimensionOptions = [{
+            name: 'Ninguno',
+            factor: 0
+        }, {
             name: 'Pequeña: Menor que 80 m2',
             factor: 5200
         },
@@ -63,6 +66,9 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     ];
 
     vm.eficienciaOptions = [{
+            name: 'Ninguno',
+            factor: 0
+        }, {
             name: 'Alta',
             factor: 0.75
         },
@@ -355,7 +361,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
 
             const totalEficiencia = vm.optionselectedeficiencia ? vm.optionselectedeficiencia.factor : 0;
 
-            const totalAlternativo = totalDimension * totalEficiencia;
+            const totalAlternativo = totalDimension * totalEficiencia * 0.347;
 
             let totalElectricidad = 0;
             let totalGas = 0;
