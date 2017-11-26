@@ -21,19 +21,26 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     let inviewpartResid = false;
 
     vm.bolsasOptions = [{
-            name: '3kg (Chica)',
+            name: '1/2kg (Muy Chica)',
+            factor: 0.5
+        },
+        {
+            name: '1kg (Chica)',
+            factor: 1
+        }, {
+            name: '3kg (Mediana)',
             factor: 3
         },
         {
-            name: '6kg (Mediana)',
+            name: '6kg (Grande)',
             factor: 6
-        }, {
-            name: '10kg (Grande)',
-            factor: 10
         }
     ];
 
     vm.dietaOptions = [{
+            name: 'Ninguno',
+            factor: 0
+        }, {
             name: 'Rica en carne',
             factor: 6
         },
