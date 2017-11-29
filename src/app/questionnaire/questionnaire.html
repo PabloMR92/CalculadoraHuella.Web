@@ -56,7 +56,8 @@
                     </div>
                     <div class="question-text">
                         2 - Consumo bimestral de electricidad
-                        <div class="subtitle big"><button data-toggle="modal" data-target="#melectriciddad">¿Cómo obtengo esta información a partir de la factura?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#melectriciddad">Haga click aquí para saber cómo obtener la información de la factura; si no posee las facturas
+continúe con el paso 5</button></div>
 
                         <div id="melectriciddad" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -97,7 +98,8 @@
                     </div>
                     <div class="question-text">
                         3 - Consumo bimestral de gas
-                        <div class="subtitle big"><button data-toggle="modal" data-target="#mgas">¿Cómo obtengo esta información a partir de la factura?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mgas">Haga click aquí para saber cómo obtener la información de la factura; si no posee las facturas
+continúe con el paso 5</button></div>
                         <div id="mgas" class="modal fade" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -137,7 +139,8 @@
                     </div>
                     <div class="question-text">
                         4 - Consumo bimestral de agua
-                        <div class="subtitle big"><button data-toggle="modal" data-target="#magua">¿Cómo obtengo esta información a partir de la factura?</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#magua">Haga click aquí para saber cómo obtener la información de la factura; si no posee las facturas
+continúe con el paso 5</button></div>
                         <div id="magua" class="modal fade" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -178,8 +181,11 @@
                     </div>
                     <div class="question-text">
                         5 - Cálculo alternativo
+                        <div class="subtitle">
+                          Emisiones individuales del hogar
+                        </div>
                         <div class="text">
-                            Para las emisiones individuales del hogar (utilice esta opción cuando no tenga a mano ningún dato específico obtenibles de las facturas de los servicios contratados en su hogar)
+                        Utilice esta opción cuando no tenga a mano los datos específicos obtenibles de las facturas de los servicios contratados en su hogar
                         </div>
                     </div>
 
@@ -243,7 +249,7 @@
                     </div>
                     <div class="question-text">
                         7 - Cantidad de residuos generados
-                        <div class="subtitle">Indique la cantidad de bolsa generadas por día (en promedio)</div>
+                        <div class="subtitle">Indique la cantidad de bolsas generadas por día y su peso</div>
                     </div>
                     <div class="bolsa-container">
                         <div class="input-content">
@@ -277,7 +283,7 @@
                     <div class="question-text">
                         8 - Traslados al trabajo o estudio
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario al trabajo o estudio</div>
-                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí</button></div>
 
                         <div id="mtranslado" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -313,7 +319,7 @@
                     <div class="question-text">
                         9 - Traslados a otras actividades
                         <div class="subtitle">Tipos de transportes y distancias de su traslado diario a otras actividades</div>
-                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí</button></div>
                     </div>
                     <transpselector data="actividad" add-other="$ctrl.addActividadTransp(selected)" remove="$ctrl.removeActividadTransp(toRemove)" ng-repeat="actividad in $ctrl.transpActividades" scroll-if="actividad.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
@@ -326,7 +332,7 @@
                     <div class="question-text">
                         10 - Viajes en avión realizados durante el año
                         <div class="subtitle">Tipos de vuelos, escalas y distancias recorridas por vuelo</div>
-                        <div class="text big"><a target="_blank" href="http://www.distanciasentreciudades.com"> Para calcular distancia del vuelo haga click aquí.</a></div>
+                        <div class="text big"><a target="_blank" href="http://www.distanciasentreciudades.com">Para calcular distancia del vuelo haga click aquí</a></div>
                     </div>
                     <avionselector data="vuelo" add-other="$ctrl.addViajeVuelo(selected)" remove="$ctrl.removeViajeVuelo(toRemove)" ng-repeat="vuelo in $ctrl.transpVuelos" scroll-if="vuelo.highlight" scrollable-watcher="#container"></avionselector>
                 </div>
@@ -338,8 +344,8 @@
                     </div>
                     <div class="question-text">
                         11 - Viajes en otros vehículos
-                        <div class="subtitle">Tipos de transportes y distancias recorridas</div>
-                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí.</button></div>
+                        <div class="subtitle">Tipo de transporte y distancias anuales recorridas</div>
+                        <div class="subtitle big"><button data-toggle="modal" data-target="#mtranslado">Para estimar distancias, haga click aquí</button></div>
                     </div>
                     <transpselector data="viaje" add-other="$ctrl.addViajeTransp(selected)" remove="$ctrl.removeViajeTransp(toRemove)" ng-repeat="viaje in $ctrl.transpViajes" scroll-if="viaje.highlight" scrollable-watcher="#container"></transpselector>
                 </div>
@@ -350,7 +356,7 @@
                         <i class="icon-eco_hospedaje"></i>
                     </div>
                     <div class="question-text">
-                        12 - Hospedaje en viaje
+                        12 - Hospedaje en viajes
                         <div class="subtitle">Cantidad de noches</div>
                     </div>
                     <div class="input-content">

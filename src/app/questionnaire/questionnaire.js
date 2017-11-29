@@ -21,18 +21,18 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     let inviewpartResid = false;
 
     vm.bolsasOptions = [{
-            name: '1/2kg (Muy Chica)',
+            name: '1/2 kg (Muy Chica)',
             factor: 0.5
         },
         {
-            name: '1kg (Chica)',
+            name: '1 kg (Chica)',
             factor: 1
         }, {
-            name: '3kg (Mediana)',
+            name: '3 kg (Mediana)',
             factor: 3
         },
         {
-            name: '6kg (Grande)',
+            name: '6 kg (Grande)',
             factor: 6
         }
     ];
@@ -54,7 +54,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     ];
 
     vm.dimensionOptions = [{
-            name: 'Ninguno',
+            name: 'Dimensiones de la vivienda',
             factor: 0
         }, {
             name: 'Pequeña: Menor que 80 m2',
@@ -73,7 +73,7 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
     ];
 
     vm.eficienciaOptions = [{
-            name: 'Ninguno',
+            name: 'Nivel de eficiencia',
             factor: 0
         }, {
             name: 'Alta',
