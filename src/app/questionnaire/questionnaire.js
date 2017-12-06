@@ -76,11 +76,11 @@ function questionnaireController($log, $localStorage, Popeye, $timeout) {
             name: 'Nivel de eficiencia',
             factor: 0
         }, {
-            name: 'Alta',
+            name: 'Alta (artefactos eficientes, hábitos de ahorro de energía)',
             factor: 0.75
         },
         {
-            name: 'Baja',
+            name: 'Baja (artefactos de baja eficiencia, sin hábitos de ahorro de energía',
             factor: 1
         }
     ];

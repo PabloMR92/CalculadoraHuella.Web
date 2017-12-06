@@ -1,4 +1,6 @@
 {
+    "name": "calculadorahuelladecarbono",
+    "version": "1.0.0",
     "dependencies": {
         "angular": "^1.6.2",
         "angular-animate": "^1.6.6",
@@ -72,7 +74,9 @@
         "style-loader": "^0.13.1",
         "url-loader": "^0.5.9",
         "webpack": "^2.2.1",
-        "webpack-fail-plugin": "^1.0.5"
+        "webpack-fail-plugin": "^1.0.5",
+        "nw": "^0.18.2",
+        "nw-builder": "^3.1.2"
     },
     "scripts": {
         "build": "gulp",
@@ -80,7 +84,8 @@
         "serve:dist": "gulp serve:dist",
         "test": "gulp test",
         "test:auto": "gulp test:auto",
-        "start": "gulp server"
+        "start": "gulp server",
+        "prod": "nwbuild --platforms win32,win64 --buildDir dist/ dist/"
     },
     "eslintConfig": {
         "globals": {
