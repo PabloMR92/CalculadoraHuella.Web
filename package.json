@@ -1,4 +1,7 @@
 {
+    // npm install nw-builder -g
+    // npm install node-webkit-builder -g
+    // nwbuild --platforms win32 --buildDir "C:\Users\Pablo\Desktop\Calculadora Huella de Carbono\exes" "C:\Users\Pablo\Desktop\Calculadora Huella de Carbono\dist"
     "name": "calculadorahuelladecarbono",
     "version": "1.0.0",
     "dependencies": {
